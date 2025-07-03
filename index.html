@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITLY FIND - Right Fit, Right Here!</title>
+  <meta name="description"
+    content="Connect with top employers and find your perfect job opportunity. Search thousands of jobs and take the next step in your career.">
+  <meta name="author" content="FITLY FIND Platform">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="assets/images/Adobe Express - file.png" alt="FITLY FIND Logo" class="logo-img" />
+        <span class="logo-text">
+          <span class="logo-title">FITLY FIND</span>
+        </span>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li><a href="#jobs">Find Jobs</a></li>
+          <li><a href="#companies">Companies</a></li>
+          <li><a href="#advice">Career Advice</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" onclick="toggleMobileSidebar()">☰</button>
+      <div class="header-buttons">
+        <button class="btn btn-primary d" onclick="openEnrollForm()">Get Started</button>
+        <button class="btn btn-success d" onclick="openEnrollForm()">Enroll Now</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobileSidebar" class="mobile-sidebar">
+    <button class="close-sidebar" onclick="toggleMobileSidebar()">&times;</button>
+    <ul class="mobile-nav">
+      <li><a href="#jobs" onclick="toggleMobileSidebar()"><i class="fas fa-search"></i>Find Jobs</a></li>
+      <li><a href="#companies" onclick="toggleMobileSidebar()"><i class="fas fa-building"></i>Companies</a></li>
+      <li><a href="#advice" onclick="toggleMobileSidebar()"><i class="fas fa-lightbulb"></i>Career Advice</a></li>
+      <li><a href="#about" onclick="toggleMobileSidebar()"><i class="fas fa-info-circle"></i>About</a></li>
+    </ul>
+    <div class="mobile-buttons">
+      <button class="btn btn-primary" onclick="openEnrollForm(); toggleMobileSidebar()">Get Started</button>
+      <button class="btn btn-success" onclick="openEnrollForm(); toggleMobileSidebar()">Enroll Now</button>
+    </div>
+  </div>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <h1 class="animate slide-down">Find Your Dream Job <span class="highlight">Today</span></h1>
+      <p class="animate slide-down delay-1">Connect with top employers and discover opportunities that match your
+        skills and ambitions. Your perfect career is just a search away.</p>
+      <div class="search-box animate zoom-in delay-2">
+        <form class="search-form">
+          <input type="text" placeholder="Job title, keywords, or company" class="search-input">
+          <input type="text" placeholder="City, state, or remote" class="search-input">
+          <button type="submit" class="search-btn">Search Jobs</button>
+        </form>
+      </div>
+      <div class="popular-searches animate fade-in delay-3">
+        <span>Popular searches:</span>
+        <button>Remote Developer</button>
+        <button>Marketing Manager</button>
+        <button>Data Analyst</button>
+        <button>Customer Support</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white" id="categories">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="animate slide-down">Popular Job Categories</h2>
+        <p class="animate slide-down delay-1">Explore opportunities across different industries</p>
+      </div>
+      <div class="categories-grid">
+        <div class="category-card animate slide-up delay-1">
+          <div class="category-icon">💻</div>
+          <h3>Technology</h3>
+          <p>2,547 jobs</p>
+        </div>
+        <div class="category-card animate slide-up delay-2">
+          <div class="category-icon">📈</div>
+          <h3>Marketing</h3>
+          <p>1,832 jobs</p>
+        </div>
+        <div class="category-card animate slide-up delay-3">
+          <div class="category-icon">🎨</div>
+          <h3>Design</h3>
+          <p>1,247 jobs</p>
+        </div>
+        <div class="category-card animate slide-up delay-4">
+          <div class="category-icon">💼</div>
+          <h3>Business</h3>
+          <p>2,156 jobs</p>
+        </div>
+        <div class="category-card animate slide-up delay-5">
+          <div class="category-icon">🏥</div>
+          <h3>Healthcare</h3>
+          <p>1,943 jobs</p>
+        </div>
+        <div class="category-card animate slide-up delay-6">
+          <div class="category-icon">🎓</div>
+          <h3>Education</h3>
+          <p>892 jobs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray" id="how-it-works">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="animate slide-down">How It Works</h2>
+        <p class="animate slide-down delay-1">Get hired in just 3 simple steps</p>
+      </div>
+      <div class="steps">
+        <div class="step animate slide-right delay-1">
+          <div class="step-number">1</div>
+          <h3>Search Jobs</h3>
+          <p>Browse thousands of job opportunities from top companies across various industries.</p>
+        </div>
+        <div class="step animate slide-up delay-2">
+          <div class="step-number">2</div>
+          <h3>Apply</h3>
+          <p>Submit your application with just one click using your profile and resume.</p>
+        </div>
+        <div class="step animate slide-left delay-3">
+          <div class="step-number">3</div>
+          <h3>Get Hired</h3>
+          <p>Connect with employers and land your dream job faster than ever before.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white" id="companies">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="animate slide-down">Trusted by Top Companies</h2>
+        <p class="animate slide-down delay-1">Join thousands of companies that find great talent through our
+          platform</p>
+      </div>
+      <div class="companies-grid">
+        <div class="company-logo animate zoom-in delay-1">TC</div>
+        <div class="company-logo animate zoom-in delay-2">IN</div>
+        <div class="company-logo animate zoom-in delay-3">DS</div>
+        <div class="company-logo animate zoom-in delay-4">FL</div>
+        <div class="company-logo animate zoom-in delay-5">CS</div>
+        <div class="company-logo animate zoom-in delay-6">DF</div>
+        <div class="company-logo animate zoom-in delay-1">AV</div>
+        <div class="company-logo animate zoom-in delay-2">NG</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-gray" id="jobs">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="animate slide-down">Latest Job Opportunities</h2>
+        <p class="animate slide-down delay-1">Discover your next career move</p>
+      </div>
+      <div class="jobs-grid">
+        <div class="job-card animate slide-up delay-1">
+          <div class="job-header">
+            <div class="job-company">G</div>
+            <div class="job-posted">2 days ago</div>
+          </div>
+          <div class="job-title">Senior Frontend Developer</div>
+          <div class="job-location">Google • San Francisco, CA</div>
+          <div class="job-details">
+            <div class="job-salary">$120k - $180k</div>
+            <div class="job-type">Full-time</div>
+          </div>
+          <div class="job-description">Join our team to build cutting-edge web applications using React,
+            TypeScript, and modern web technologies.</div>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+        <div class="job-card animate slide-up delay-2">
+          <div class="job-header">
+            <div class="job-company">M</div>
+            <div class="job-posted">1 day ago</div>
+          </div>
+          <div class="job-title">Product Marketing Manager</div>
+          <div class="job-location">Microsoft • Seattle, WA</div>
+          <div class="job-details">
+            <div class="job-salary">$95k - $130k</div>
+            <div class="job-type" style="background: #dbeafe; color: #1e40af;">Remote</div>
+          </div>
+          <div class="job-description">Lead product marketing initiatives and drive go-to-market strategies
+            for our cloud products.</div>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+        <div class="job-card animate slide-up delay-3">
+          <div class="job-header">
+            <div class="job-company">A</div>
+            <div class="job-posted">3 days ago</div>
+          </div>
+          <div class="job-title">UX Designer</div>
+          <div class="job-location">Apple • Cupertino, CA</div>
+          <div class="job-details">
+            <div class="job-salary">$110k - $160k</div>
+            <div class="job-type" style="background: #e0e7ff; color: #5b21b6;">Hybrid</div>
+          </div>
+          <div class="job-description">Design intuitive user experiences for next-generation consumer products
+            and services.</div>
+          <button class="apply-btn">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white" id="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="animate slide-down">What Our Users Say</h2>
+        <p class="animate slide-down delay-1">Success stories from job seekers and employers</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial animate rotate-in delay-1">
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>Software Engineer</p>
+            </div>
+          </div>
+          <div class="testimonial-text">"I found my dream job within 2 weeks of signing up. The platform made
+            it so easy to connect with great companies!"</div>
+        </div>
+        <div class="testimonial animate rotate-in delay-2">
+          <div class="testimonial-author">
+            <div class="author-avatar">M</div>
+            <div class="author-info">
+              <h4>Mike Chen</h4>
+              <p>HR Director</p>
+            </div>
+          </div>
+          <div class="testimonial-text">"As an employer, I've hired 15+ amazing candidates through FITLY FIND.
+            The quality of talent is exceptional."</div>
+        </div>
+        <div class="testimonial animate rotate-in delay-3">
+          <div class="testimonial-author">
+            <div class="author-avatar">E</div>
+            <div class="author-info">
+              <h4>Emily Rodriguez</h4>
+              <p>Marketing Manager</p>
+            </div>
+          </div>
+          <div class="testimonial-text">"The personalized job recommendations were spot-on. I landed a role
+            that perfectly matches my skills and interests."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section bg-gray" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="animate slide-down">Frequently Asked Questions</h2>
+        <p class="animate slide-down delay-1">Find answers to common questions about our platform</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item animate slide-up delay-1">
+          <div class="faq-question">
+            <h3>How do I create an account?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Creating an account is simple! Click on the "Get Started" button at the top of the page, fill in your
+              basic information, and verify your email address. Once verified, you can complete your profile and start
+              applying for jobs immediately.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate slide-up delay-2">
+          <div class="faq-question">
+            <h3>Is there a cost to use FITLY FIND?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>No, FITLY FIND is completely free for job seekers. Employers pay to post jobs and access premium
+              features, but as a candidate, you can search, apply, and connect with employers at no cost.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate slide-up delay-3">
+          <div class="faq-question">
+            <h3>How can I improve my profile visibility?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>To maximize your visibility to employers:
+            <ul>
+              <li>Complete all sections of your profile (100% completion)</li>
+              <li>Add relevant skills and certifications</li>
+              <li>Upload a professional resume</li>
+              <li>Keep your profile active by applying to jobs regularly</li>
+              <li>Enable "Open to Opportunities" in your settings</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item animate slide-up delay-4">
+          <div class="faq-question">
+            <h3>Can I apply for jobs without a resume?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! Our platform allows you to apply using your profile information. However, we recommend uploading a
+              resume as many employers prefer to review traditional resumes. You can easily upload and manage multiple
+              resume versions in your profile.</p>
+          </div>
+        </div>
+
+        <div class="faq-item animate slide-up delay-5">
+          <div class="faq-question">
+            <h3>How do I know if an employer viewed my application?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>You'll receive notifications when:
+            <ul>
+              <li>Your application is received</li>
+              <li>An employer views your profile</li>
+              <li>Your application status changes</li>
+            </ul>
+            You can also track all your applications in the "My Applications" section of your dashboard.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item animate slide-up delay-6">
+          <div class="faq-question">
+            <h3>What types of jobs are available on FITLY FIND?</h3>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We feature opportunities across all industries and experience levels, including:
+            <ul>
+              <li>Full-time positions</li>
+              <li>Part-time jobs</li>
+              <li>Remote and hybrid roles</li>
+              <li>Internships</li>
+              <li>Freelance/contract work</li>
+              <li>Executive positions</li>
+            </ul>
+            Use our advanced filters to find exactly what you're looking for.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-contact animate fade-in delay-4" style="text-align: center; margin-top: 50px;">
+        <p>Still have questions? <a href="#contact" style="color: #3b82f6; font-weight: 600;">Contact our support
+            team</a> and we'll be happy to help!</p>
+      </div>
+    </div>
+  </section>
+  <section class="section newsletter" id="newsletter">
+    <div class="container">
+      <h2 class="animate slide-down">Get Career Tips & Job Alerts</h2>
+      <p class="animate slide-down delay-1">Stay ahead of the competition with our weekly newsletter</p>
+      <form class="newsletter-form animate zoom-in delay-2">
+        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section animate slide-up delay-1">
+          <h3>For Job Seekers</h3>
+          <ul>
+            <li><a href="#">Browse Jobs</a></li>
+            <li><a href="#">Career Advice</a></li>
+            <li><a href="#">Resume Builder</a></li>
+            <li><a href="#">Salary Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-section animate slide-up delay-2">
+          <h3>For Employers</h3>
+          <ul>
+            <li><a href="#">Post Jobs</a></li>
+            <li><a href="#">Search Resumes</a></li>
+            <li><a href="#">Hiring Solutions</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-section animate slide-up delay-3">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section animate slide-up delay-4">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+          <div class="social-links">
+            <a href="#">📘</a>
+            <a href="#">🐦</a>
+            <a href="#">💼</a>
+            <a href="#">📸</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-logo animate fade-in delay-5">
+          <img src="Adobe Express - file.png" alt="FITLY FIND Logo" class="logo-img" />
+          <div>
+            <span class="logo-title">FITLY FIND</span><br>
+            <span class="logo-tagline">Right Fit, Right Here!</span>
+          </div>
+        </div>
+        <div class="copyright animate fade-in delay-6">
+          © 2024 FITLY FIND. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="enrollModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Company Enrollment</h2>
+        <button class="close-btn" onclick="closeEnrollForm()">&times;</button>
+      </div>
+      <form id="enrollForm" onsubmit="submitEnrollForm(event)">
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input type="text" id="companyName" name="companyName" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" required>
+        </div>
+        <div class="form-buttons">
+          <button type="button" class="btn btn-cancel" onclick="closeEnrollForm()">Cancel</button>
+          <button type="submit" class="btn btn-submit">Submit Enrollment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Feedback Button -->
+  <div class="feedback-button" id="feedbackButton">
+    <i class="fas fa-comment-alt"></i>
+  </div>
+
+  <!-- Feedback Modal -->
+  <div class="feedback-modal" id="feedbackModal">
+    <h3>Send us your feedback</h3>
+    <form class="feedback-form" id="feedbackForm">
+      <div class="form-group">
+        <label for="feedbackName">Your Name</label>
+        <input type="text" id="feedbackName" required>
+      </div>
+      <div class="form-group">
+        <label for="feedbackEmail">Email</label>
+        <input type="email" id="feedbackEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="feedbackMessage">Message</label>
+        <textarea id="feedbackMessage" required></textarea>
+      </div>
+      <div class="form-group file-upload">
+        <input type="file" id="feedbackFile" style="display: none;">
+        <label for="feedbackFile" class="file-upload-label">
+          <i class="fas fa-paperclip"></i> Attach File
+        </label>
+        <div class="file-name" id="fileName"></div>
+      </div>
+      <div class="form-buttons">
+        <button type="button" class="btn-cancel" id="cancelFeedback">Cancel</button>
+        <button type="submit" class="btn-submit">Send Feedback</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="feedbackOverlay"></div>
+  <div id="toastContainer"
+    style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
+  </div>
+</body>
+<script src="assets/js/script.js"></script>
+
+</html>

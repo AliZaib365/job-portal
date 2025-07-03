@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITLY FIND - Jobs & Applications</title>
+  <meta name="description" content="Admin dashboard for managing jobs and applications">
+  <meta name="author" content="FITLY FIND Platform">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles/Application-table.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+2
+<body>
+  <div class="admin-container">
+    <div class="page-header">
+      <div class="page-title">
+        <h1>Jobs & Applications</h1>
+        <p>Manage all job postings and candidate applications</p>
+      </div>
+      <div class="page-actions">
+        <button class="btn btn-primary">
+          <i class="fas fa-plus"></i> Post New Job
+        </button>
+        <button class="btn btn-outline">
+          <i class="fas fa-download"></i> Export
+        </button>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active">All Jobs</div>
+      <div class="tab">Active</div>
+      <div class="tab">Pending</div>
+      <div class="tab">Closed</div>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-group">
+        <select class="filter-control">
+          <option>All Categories</option>
+          <option>Technology</option>
+          <option>Marketing</option>
+          <option>Design</option>
+          <option>Business</option>
+        </select>
+        <select class="filter-control">
+          <option>All Types</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Contract</option>
+          <option>Internship</option>
+        </select>
+        <select class="filter-control">
+          <option>All Locations</option>
+          <option>Remote</option>
+          <option>On-site</option>
+          <option>Hybrid</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <input type="text" class="search-input" placeholder="Search jobs...">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Job Postings</h3>
+        <div class="card-actions">
+          <select class="filter-control">
+            <option>Sort by: Newest</option>
+            <option>Sort by: Oldest</option>
+            <option>Sort by: Most Applications</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Job Title</th>
+                <th>Company</th>
+                <th>Applications</th>
+                <th>Posted</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="jobsTableBody">
+              <!-- Jobs data will be inserted here by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination-container">
+          <div class="pagination" id="jobsPagination">
+            <!-- Pagination will be inserted here by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Applications Table -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Recent Applications</h3>
+        <div class="card-actions">
+          <select class="filter-control">
+            <option>Sort by: Newest</option>
+            <option>Sort by: Oldest</option>
+            <option>Sort by: Highest Rating</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Candidate</th>
+                <th>Job Applied</th>
+                <th>Company</th>
+                <th>Applied On</th>
+                <th>Status</th>
+                <th>CV</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="applicationsTableBody">
+              <!-- Applications data will be inserted here by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination-container">
+          <div class="pagination" id="applicationsPagination">
+            <!-- Pagination will be inserted here by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="assets/js/Applications-Table.js"></script>
+</body>
+
+</html>

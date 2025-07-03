@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FITLY FIND - Admin Login</title>
+  <meta name="description" content="Admin login for FITLY FIND job platform">
+  <meta name="author" content="FITLY FIND Platform">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="assets/styles/login.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <div class="login-logo" style="display: flex; align-items: center; margin-bottom: 20px;">
+        <img src="filthyfind.jpg" alt="FITLY FIND Logo" style="width: 50px; height: 50px; border-radius: 12px; margin-right: 10px;">
+        <h2>FITLY FIND</h2>
+      </div>
+      <p>Manage your job platform with ease using our intuitive and secure admin panel.</p>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> Job Post Management</li>
+        <li><i class="fas fa-check-circle"></i> Analytics & Reporting</li>
+        <li><i class="fas fa-check-circle"></i> User Role Control</li>
+        <li><i class="fas fa-check-circle"></i> Premium Tools Access</li>
+      </ul>
+    </div>
+    <div class="right-panel">
+      <h1>Sign In to Admin Panel</h1>
+      <p>Secure access to control your platform</p>
+
+      <form class="login-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="admin@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required>
+        </div>
+        <div class="actions">
+          <label><input type="checkbox" id="remember"> Remember me</label>
+          <a href="forget-password.html">Forgot Password?</a>
+        </div>
+        <button class="login-btn" type="submit">Login</button>
+
+        <div class="social-section">
+          <span>or sign in with</span>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="#"><i class="fab fa-microsoft"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-link">
+          Don't have access? <a href="#">Request admin rights</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const remember = document.getElementById('remember').checked;
+
+      console.log('Login attempt:', { email, password, remember });
+
+      setTimeout(() => {
+        window.location.href = 'admin-dashboard.html';
+      }, 1000);
+    });
+  </script>
+</body>
+
+</html>
