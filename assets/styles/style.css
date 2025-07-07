@@ -1853,27 +1853,6 @@ body {
   cursor: pointer;
 }
 
-.popular-searches {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.popular-searches span {
-  color: #6b7280;
-  font-weight: 500;
-}
-
-.popular-searches button {
-  background: none;
-  border: none;
-  color: #3b82f6;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
 @media (max-width: 768px) {
   .punchline {
     font-size: 1.7rem;
