@@ -1868,3 +1868,19 @@ body {
     width: 100%;
   }
 }
+/* Terms and Conditions line specific styles */
+.terms-line {
+  margin-top: 8px;
+  font-size: 0.9em;
+}
+
+.terms-line a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.terms-line a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}

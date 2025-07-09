@@ -1,0 +1,130 @@
+.terms-container {
+    max-width: 1300px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+.terms-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+/* Typography */
+.terms-title {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+}
+
+.terms-updated {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.terms-intro {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* Section Styling */
+.terms-section {
+    margin-bottom: 35px;
+    page-break-inside: avoid;
+}
+
+.terms-section h2 {
+    color: #2980b9;
+    margin-top: 40px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.6em;
+}
+
+.terms-section h3 {
+    color: #16a085;
+    margin-top: 30px;
+    font-size: 1.3em;
+}
+
+.terms-section p, 
+.terms-section li {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.terms-section ul {
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.terms-section li {
+    margin-bottom: 10px;
+}
+
+/* Definition List */
+.terms-definitions {
+    margin: 25px 0;
+}
+
+.terms-definitions strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Links */
+.terms-link {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.terms-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Contact Section */
+.terms-contact {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .terms-container {
+        padding: 0 15px;
+    }
+
+    .terms-content {
+        padding: 25px;
+    }
+
+    .terms-title {
+        font-size: 1.8em;
+    }
+
+    .terms-section h2 {
+        font-size: 1.4em;
+    }
+
+    .terms-section h3 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .terms-content {
+        padding: 20px 15px;
+    }
+
+    .terms-section {
+        margin-bottom: 25px;
+    }
+}
