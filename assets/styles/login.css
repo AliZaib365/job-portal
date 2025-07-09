@@ -229,4 +229,7 @@
     .left-panel, .right-panel {
       padding: 40px 20px;
     }
+    .left-panel{
+      display: none;
+    }
   }
