@@ -603,7 +603,7 @@ body {
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, #3b82f6, #3d4654);
+  background: linear-gradient(to right, #3d4654,#3b82f6);
   border-radius: 2px;
 }
 
@@ -639,7 +639,7 @@ body {
   left: 0;
   width: 100%;
   height: 5px;
-  background: linear-gradient(to right, #3b82f6, #3d4654);
+  background: linear-gradient(to right, #3d4654,#3b82f6);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
