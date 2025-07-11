@@ -206,7 +206,7 @@ body {
 }
 
 .btn {
-  padding: 8px 16px;
+  padding: 12px 24px;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -448,11 +448,11 @@ body {
 .hero .highlight::after {
   content: '';
   position: absolute;
-  bottom: 5px;
+  bottom: 3px;
   left: 0;
   width: 100%;
-  height: 12px;
-  background: rgba(0, 0, 0, 0.089);
+  height: 3px;
+  background: rgba(0, 0, 0, 0.3);
   z-index: -1;
   border-radius: 4px;
   transform: scaleX(0);
@@ -1468,7 +1468,7 @@ body {
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #ddd;
   border-radius: 8px;
   font-size: 1.07em;
   transition: all 0.3s;
@@ -1477,8 +1477,8 @@ body {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #333333;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* subtle black shadow */
+  border-color: #333;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .form-group textarea {
@@ -1495,25 +1495,25 @@ body {
 .btn-cancel {
   flex: 1;
   background: white;
-  color: #6b7280;
-  border: 2px solid #e5e7eb;
+  color: #666;
+  border: 2px solid #ddd;
   font-weight: 600;
 }
 
 .btn-cancel:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
+  background: #f5f5f5;
+  border-color: #ccc;
 }
 
 .btn-submit {
   flex: 1;
-  background: #333333;
+  background: #333;
   color: white;
   font-weight: 700;
 }
 
 .btn-submit:hover {
-  background: #444444;
+  background: #000;
 }
 
 .animate {
@@ -1574,12 +1574,11 @@ body {
   transition-delay: 0.6s;
 }
 
-/* Feedback Button Styles */
 .feedback-button {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #333333;
+  background: #333;
   color: white;
   width: 60px;
   height: 60px;
@@ -1588,20 +1587,18 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* subtle black shadow */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   z-index: 999;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
 .feedback-button:hover {
-  background: #444444; /* slightly lighter on hover */
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* subtle black shadow */
+  background: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-
-/* Feedback Modal Styles */
 .feedback-modal {
   position: fixed;
   bottom: 100px;
@@ -1626,7 +1623,7 @@ body {
 
 .feedback-modal h3 {
   margin-bottom: 20px;
-  color: #1f2937;
+  color: #333;
   font-size: 1.3rem;
 }
 
@@ -1638,14 +1635,14 @@ body {
   display: block;
   margin-bottom: 5px;
   font-weight: 500;
-  color: #374151;
+  color: #444;
 }
 
 .feedback-form input,
 .feedback-form textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #ddd;
   border-radius: 6px;
   font-family: 'Inter', sans-serif;
 }
@@ -1662,8 +1659,8 @@ body {
 .feedback-form .file-upload-label {
   display: inline-block;
   padding: 8px 12px;
-  background: #eff6ff;
-  color: #333333;
+  background: #f0f0f0;
+  color: #333;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
@@ -1671,12 +1668,12 @@ body {
 }
 
 .feedback-form .file-upload-label:hover {
-  background: #dbeafe;
+  background: #e0e0e0;
 }
 
 .feedback-form .file-name {
   font-size: 12px;
-  color: #6b7280;
+  color: #666;
   margin-top: 5px;
   display: none;
 }
@@ -1689,7 +1686,7 @@ body {
 
 .feedback-form .btn-submit {
   flex: 1;
-  background: #333333;
+  background: #333;
   color: white;
   border: none;
   padding: 10px;
@@ -1700,13 +1697,13 @@ body {
 }
 
 .feedback-form .btn-submit:hover {
-    background: #444444; /* slightly lighter on hover */
+  background: #000;
 }
 
 .feedback-form .btn-cancel {
   flex: 1;
-  background: #f3f4f6;
-  color: #6b7280;
+  background: #f0f0f0;
+  color: #666;
   border: none;
   padding: 10px;
   border-radius: 6px;
@@ -1716,10 +1713,8 @@ body {
 }
 
 .feedback-form .btn-cancel:hover {
-  background: #e5e7eb;
+  background: #e0e0e0;
 }
-
-/* Overlay for when modal is open */
 
 @media (max-width: 480px) {
   .feedback-modal {
@@ -1813,7 +1808,6 @@ body {
   }
 }
 
-
 .punchline-container {
   position: relative;
   width: 100%;
@@ -1831,7 +1825,7 @@ body {
   transition: all 0.6s ease-in-out;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #333;
 }
 
 .punchline.active {
@@ -1840,14 +1834,14 @@ body {
 }
 
 .highlight {
-  color: #3b82f6;
+  color: #000;
 }
 
 .description {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 40px;
-  color: #6b7280;
+  color: #666;
 }
 .search-form {
   display: flex;
@@ -1859,14 +1853,14 @@ body {
   flex: 1;
   min-width: 240px;
   padding: 15px;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
 }
 
 .search-btn {
   padding: 15px 32px;
-  background: #333333;
+  background: #333;
   color: white;
   border: none;
   border-radius: 8px;
@@ -1888,7 +1882,7 @@ body {
     width: 100%;
   }
 }
-/* Terms and Conditions line specific styles */
+
 .terms-line {
   margin-top: 8px;
   font-size: 0.9em;
@@ -1901,7 +1895,7 @@ body {
 }
 
 .terms-line a:hover {
-  color: #3498db;
+  color: #555;
   text-decoration: underline;
 }
 </style>
