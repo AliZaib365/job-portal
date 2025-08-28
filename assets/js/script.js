@@ -1,3 +1,101 @@
+// --- About Page Animations and Effects ---
+document.addEventListener('DOMContentLoaded', function () {
+  // Algorithm visualization animation
+  setTimeout(function () {
+    const matchLine = document.querySelector('.about-match-line');
+    if (matchLine) {
+      matchLine.style.width = 'calc(100% - 320px)';
+    }
+
+    setTimeout(function () {
+      const matchPercentage = document.querySelector('.about-match-percentage');
+      if (matchPercentage) {
+        matchPercentage.style.opacity = '1';
+      }
+
+      // Animate the job seeker and employer moving toward center
+      const jobSeeker = document.querySelector('.about-job-seeker');
+      const employer = document.querySelector('.about-employer');
+      if (jobSeeker) jobSeeker.style.left = '0px';
+      if (employer) employer.style.right = '0px';
+
+      // Create sparkle effects
+      const sparkles = document.querySelectorAll('.about-sparkle');
+      sparkles.forEach((sparkle, index) => {
+        setTimeout(() => {
+          sparkle.style.opacity = '1';
+          sparkle.style.transform = 'scale(2.5)';
+          setTimeout(() => {
+            sparkle.style.opacity = '0';
+            sparkle.style.transform = 'scale(1)';
+          }, 600);
+        }, index * 300);
+      });
+    }, 1000);
+  }, 1000);
+
+  // Animate algorithm steps on scroll
+  const algorithmSteps = document.querySelectorAll('.about-algorithm-step');
+  const algorithmVisual = document.querySelector('.about-algorithm-visual');
+  const teamMembers = document.querySelectorAll('.about-team-member');
+  const statItems = document.querySelectorAll('.about-stat-item');
+
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target.classList.contains('about-algorithm-step')) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateX(0)';
+          entry.target.style.transition = 'all 0.6s ease';
+        } else if (entry.target.classList.contains('about-algorithm-visual')) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateX(0)';
+          entry.target.style.transition = 'all 0.8s ease';
+        } else if (entry.target.classList.contains('about-team-member')) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        } else if (entry.target.classList.contains('about-stat-item')) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+
+          // Animate counting up for stats
+          const statNumber = entry.target.querySelector('h3');
+          if (statNumber) {
+            // Get number, keeping any trailing chars (K, M, %, +)
+            const originalText = statNumber.innerText;
+            const target = parseInt(originalText.replace(/\D/g, ''));
+            let count = 0;
+            const duration = 2000;
+            const steps = 60;
+            const increment = target / steps;
+            const suffix = originalText.replace(/[0-9]/g, '');
+            const timer = setInterval(() => {
+              count += increment;
+              if (count >= target) {
+                statNumber.innerText = originalText;
+                clearInterval(timer);
+              } else {
+                statNumber.innerText = Math.floor(count) + suffix;
+              }
+            }, duration / steps);
+          }
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements
+  algorithmSteps.forEach(step => observer.observe(step));
+  if (algorithmVisual) observer.observe(algorithmVisual);
+  teamMembers.forEach(member => observer.observe(member));
+  statItems.forEach(item => observer.observe(item));
+});
 function animateOnScroll() {
   const elements = document.querySelectorAll('.animate');
 
@@ -118,20 +216,26 @@ function showToast(message, type = 'info', duration = 5000) {
 document.querySelectorAll('.faq-question').forEach(question => {
   question.addEventListener('click', () => {
     const faqItem = question.parentElement;
+    const faqAnswer = faqItem.querySelector('.faq-answer');
     const isActive = faqItem.classList.contains('active');
 
     // Close all other FAQs
     document.querySelectorAll('.faq-item').forEach(item => {
-      if (item !== faqItem) {
-        item.classList.remove('active');
-      }
+      const answer = item.querySelector('.faq-answer');
+      item.classList.remove('active');
+      answer.style.maxHeight = null;
+      answer.style.paddingBottom = "0px";
     });
 
     // Toggle current FAQ
     if (!isActive) {
       faqItem.classList.add('active');
+      faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
+      faqAnswer.style.paddingBottom = "20px";
     } else {
       faqItem.classList.remove('active');
+      faqAnswer.style.maxHeight = null;
+      faqAnswer.style.paddingBottom = "0px";
     }
   });
 });
@@ -221,3 +325,5 @@ function showNextPunchline() {
 // Show first line immediately
 showNextPunchline();
 setInterval(showNextPunchline, 3000);
+
+// About
