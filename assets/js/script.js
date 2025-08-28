@@ -230,7 +230,7 @@ document.querySelectorAll('.faq-question').forEach(question => {
     // Toggle current FAQ
     if (!isActive) {
       faqItem.classList.add('active');
-      faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "110px";
+      faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
       faqAnswer.style.paddingBottom = "20px";
     } else {
       faqItem.classList.remove('active');
