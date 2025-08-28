@@ -251,118 +251,6 @@
       </div>
     </div>
   </section>
-   <section class="section bg-gray" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="animate slide-down">Frequently Asked Questions</h2>
-                <p class="animate slide-down delay-1">Find answers to common questions about our platform</p>
-            </div>
-
-            <div class="faq-container">
-                <div class="faq-item animate slide-up delay-1">
-                    <div class="faq-question">
-                        <h3>How do I create an account?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Creating an account is simple! Click on the "Get Started" button at the top of the page, fill
-                            in your
-                            basic information, and verify your email address. Once verified, you can complete your
-                            profile and start
-                            applying for jobs immediately.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item animate slide-up delay-2">
-                    <div class="faq-question">
-                        <h3>Is there a cost to use FITLY FIND?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No, FITLY FIND is completely free for job seekers. Employers pay to post jobs and access
-                            premium
-                            features, but as a candidate, you can search, apply, and connect with employers at no cost.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item animate slide-up delay-3">
-                    <div class="faq-question">
-                        <h3>How can I improve my profile visibility?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>To maximize your visibility to employers:
-                        <ul>
-                            <li>Complete all sections of your profile (100% completion)</li>
-                            <li>Add relevant skills and certifications</li>
-                            <li>Upload a professional resume</li>
-                            <li>Keep your profile active by applying to jobs regularly</li>
-                            <li>Enable "Open to Opportunities" in your settings</li>
-                        </ul>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item animate slide-up delay-4">
-                    <div class="faq-question">
-                        <h3>Can I apply for jobs without a resume?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes! Our platform allows you to apply using your profile information. However, we recommend
-                            uploading a
-                            resume as many employers prefer to review traditional resumes. You can easily upload and
-                            manage multiple
-                            resume versions in your profile.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item animate slide-up delay-5">
-                    <div class="faq-question">
-                        <h3>How do I know if an employer viewed my application?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>You'll receive notifications when:
-                        <ul>
-                            <li>Your application is received</li>
-                            <li>An employer views your profile</li>
-                            <li>Your application status changes</li>
-                        </ul>
-                        You can also track all your applications in the "My Applications" section of your dashboard.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="faq-item animate slide-up delay-6">
-                    <div class="faq-question">
-                        <h3>What types of jobs are available on FITLY FIND?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We feature opportunities across all industries and experience levels, including:
-                        <ul>
-                            <li>Full-time positions</li>
-                            <li>Part-time jobs</li>
-                            <li>Remote and hybrid roles</li>
-                            <li>Internships</li>
-                            <li>Freelance/contract work</li>
-                            <li>Executive positions</li>
-                        </ul>
-                        Use our advanced filters to find exactly what you're looking for.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faq-contact animate fade-in delay-4" style="text-align: center; margin-top: 50px;">
-                <p>Still have questions? <a href="#contact" style="color: #3b82f6; font-weight: 600;">Contact our
-                        support
-                        team</a> and we'll be happy to help!</p>
-            </div>
-        </div>
-    </section>
     <section class="section newsletter" id="newsletter">
         <div class="container">
             <h2 class="animate slide-down">Get Career Tips & Job Alerts</h2>
@@ -506,34 +394,8 @@
     <div id="toastContainer"
         style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
     </div>
+    
 </body>
 <script src="/assets/js/script.js"></script>
-<script>
-  document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', () => {
-    const faqItem = question.parentElement;
-    const faqAnswer = faqItem.querySelector('.faq-answer');
-    const isActive = faqItem.classList.contains('active');
 
-    // Close all other FAQs
-    document.querySelectorAll('.faq-item').forEach(item => {
-      const answer = item.querySelector('.faq-answer');
-      item.classList.remove('active');
-      answer.style.maxHeight = null;
-      answer.style.paddingBottom = "0px";
-    });
-
-    // Toggle current FAQ
-    if (!isActive) {
-      faqItem.classList.add('active');
-      faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
-      faqAnswer.style.paddingBottom = "20px";
-    } else {
-      faqItem.classList.remove('active');
-      faqAnswer.style.maxHeight = null;
-      faqAnswer.style.paddingBottom = "0px";
-    }
-  });
-});
-</script>
 </html>
