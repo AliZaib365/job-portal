@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Advice - FITLY FIND</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --accent: #8b5cf6;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f6f8fa;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 1.05em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #7c3aed 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.15rem;
+            color: var(--gray);
+            font-weight: 500;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+
+        /* Career Hero Section */
+        .career-hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+            top: -150px;
+            right: -150px;
+            animation: pulse 15s infinite linear;
+        }
+
+        .career-hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0) 70%);
+            bottom: -100px;
+            left: -100px;
+            animation: pulse 12s infinite linear reverse;
+        }
+
+        .career-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+            font-weight: 900;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .career-hero .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .career-hero .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: rgba(59, 130, 246, 0.2);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .career-hero p {
+            font-size: 1.35rem;
+            color: var(--gray);
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: white;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .tip-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .tip-card:nth-child(1) { animation: fadeInUp 1s ease 0.2s forwards; }
+        .tip-card:nth-child(2) { animation: fadeInUp 1s ease 0.4s forwards; }
+        .tip-card:nth-child(3) { animation: fadeInUp 1s ease 0.6s forwards; }
+
+        .tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 28px;
+            transition: var(--transition);
+        }
+
+        .tip-card:hover .tip-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .tip-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .tip-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .tip-card ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .tip-card li {
+            margin-bottom: 12px;
+            color: var(--gray);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .tip-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            background: var(--light);
+        }
+
+        .resources-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .accordion-item:nth-child(1) { animation: fadeInUp 1s ease 0.2s forwards; }
+        .accordion-item:nth-child(2) { animation: fadeInUp 1s ease 0.4s forwards; }
+        .accordion-item:nth-child(3) { animation: fadeInUp 1s ease 0.6s forwards; }
+        .accordion-item:nth-child(4) { animation: fadeInUp 1s ease 0.8s forwards; }
+
+        .accordion-header {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background: #f8fafc;
+        }
+
+        .accordion-header h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .accordion-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .accordion-content-inner {
+            padding: 0 25px 25px;
+        }
+
+        .accordion-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .accordion-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .accordion-content a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Success Stories */
+        .stories-section {
+            background: white;
+        }
+
+        .stories-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .story-card {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: var(--transition);
+        }
+
+        .story-card.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .story-card .quote-icon {
+            font-size: 42px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            opacity: 0.3;
+        }
+
+        .story-card p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            margin: 0;
+            font-style: normal;
+            font-size: 1rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* CTA Section */
+        .career-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-cta::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23FFFFFF' fill-opacity='0.1'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .career-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .career-cta p {
+            font-size: 1.25rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .float-1 {
+            width: 150px;
+            height: 150px;
+            background: white;
+            top: 20%;
+            left: 10%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .float-2 {
+            width: 100px;
+            height: 100px;
+            background: white;
+            bottom: 10%;
+            right: 15%;
+            animation: float 18s infinite ease-in-out reverse;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes backgroundMove {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100px 100px;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .career-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .career-hero {
+                margin-top: 70px;
+                padding: 80px 20px;
+            }
+            
+            .career-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .tip-card {
+                padding: 30px;
+            }
+            
+            .story-card {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .career-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .career-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .tip-card {
+                padding: 25px;
+            }
+            
+            .career-cta h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Career Hero Section -->
+    <section class="career-hero">
+        <div class="container">
+            <h1>Your <span class="highlight">Career Journey</span> Starts Here</h1>
+            <p>Expert advice to help you navigate your career path, improve your skills, and land your dream job through intelligent matching.</p>
+            <a href="#" class="btn btn-primary">Get Matched Now</a>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Career Success Tips</h2>
+                <p>Expert advice to boost your career and improve your job search</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Resume Optimization</h3>
+                    <p>Make your resume stand out with these proven strategies:</p>
+                    <ul>
+                        <li>Tailor your resume for each application</li>
+                        <li>Use industry-specific keywords</li>
+                        <li>Highlight quantifiable achievements</li>
+                        <li>Keep it clean and professional</li>
+                        <li>Update regularly with new skills</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Interview Preparation</h3>
+                    <p>Ace your next interview with these techniques:</p>
+                    <ul>
+                        <li>Research the company thoroughly</li>
+                        <li>Practice common interview questions</li>
+                        <li>Prepare questions to ask the interviewer</li>
+                        <li>Dress appropriately for the company culture</li>
+                        <li>Follow up with a thank you note</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Career Growth</h3>
+                    <p>Strategies for long-term career development:</p>
+                    <ul>
+                        <li>Set clear career goals</li>
+                        <li>Continuously learn new skills</li>
+                        <li>Build a professional network</li>
+                        <li>Seek out mentors in your field</li>
+                        <li>Consider lateral moves for growth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Career Resources</h2>
+                <p>Expand your knowledge with our curated career development resources</p>
+            </div>
+            <div class="resources-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Resume & Cover Letter Templates</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Access our collection of professionally designed templates tailored to different industries and experience levels.</p>
+                            <a href="#">Download Templates</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Industry Salary Guides</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Stay informed about current salary ranges in your industry and location to negotiate better offers.</p>
+                            <a href="#">View Salary Guides</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Skill Assessment Tools</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Evaluate your current skillset and identify areas for improvement with our assessment tools.</p>
+                            <a href="#">Take Assessment</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Networking Strategies</h3>
+                        <div class="accordion-icon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Learn how to build and maintain a professional network that can advance your career.</p>
+                            <a href="#">Read Guide</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="stories-section section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+                <p>Real people who found their perfect career match through FITLY FIND</p>
+            </div>
+            <div class="stories-slider">
+                <div class="story-card active">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"After months of unsuccessful job searching, FITLY FIND matched me with a company that perfectly aligned with my skills and values. I started my dream job just two weeks after creating my profile!"</p>
+                    <div class="story-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Jennifer L.</h4>
+                            <p>Software Developer at TechVision</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"The career advice and matching algorithm helped me transition from marketing to product management. The resources provided gave me the confidence to make this career change successfully."</p>
+                    <div class="story-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <p>Product Manager at InnovateCo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p>"As a hiring manager, FITLY FIND has revolutionized our recruitment process. We're now connecting with candidates who are genuinely interested in our mission and well-matched to our needs."</p>
+                    <div class="story-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah J.</h4>
+                            <p>HR Director at GreenSolutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="career-cta">
+        <div class="floating-element float-1"></div>
+        <div class="floating-element float-2"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Advance Your Career?</h2>
+                <p>Join thousands of professionals who have found their perfect match through our intelligent platform.</p>
+                <a href="#" class="btn btn-success">Create Your Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const accordionItem = this.parentElement;
+                    const accordionContent = this.nextElementSibling;
+                    
+                    // Close all other accordion items
+                    document.querySelectorAll('.accordion-item').forEach(item => {
+                        if (item !== accordionItem) {
+                            item.classList.remove('active');
+                            item.querySelector('.accordion-content').style.maxHeight = null;
+                        }
+                    });
+                    
+                    // Toggle current item
+                    accordionItem.classList.toggle('active');
+                    
+                    if (accordionItem.classList.contains('active')) {
+                        accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+                    } else {
+                        accordionContent.style.maxHeight = null;
+                    }
+                });
+            });
+            
+            // Story slider functionality
+            const storyCards = document.querySelectorAll('.story-card');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                // Hide all slides
+                storyCards.forEach(card => card.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show selected slide
+                storyCards[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+            
+            // Add click events to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showSlide(index));
+            });
+            
+            // Auto-advance slides
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % storyCards.length;
+                showSlide(currentSlide);
+            }, 5000);
+            
+            // Animate elements on scroll
+            const animatedElements = document.querySelectorAll('.tip-card, .accordion-item, .section-title');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            animatedElements.forEach(element => observer.observe(element));
+        });
+    </script>
+</body>
+
+</html>
