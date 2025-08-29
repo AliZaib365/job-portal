@@ -2723,3 +2723,802 @@ body {
       padding: 14px 28px;
     }
   }
+            /* Base Styles */
+      
+
+        .career-advice-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .career-advice-btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 1.05em;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .career-advice-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .career-advice-btn:hover::before {
+            width: 100%;
+        }
+
+        .career-advice-btn-primary {
+            background: #3b82f6;
+            color: white;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .career-advice-btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .career-advice-btn-success {
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            color: rgb(0, 0, 0);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .career-advice-btn-success:hover {
+            background: linear-gradient(135deg, #929292 0%, #7a7a7a 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .career-advice-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-advice-section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .career-advice-section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #1f2937;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .career-advice-section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+
+        .career-advice-section-title p {
+            font-size: 1.15rem;
+            color: #6b7280;
+            font-weight: 500;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+
+        /* Career Hero Section */
+        .career-advice-career-hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-advice-career-hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+            top: -150px;
+            right: -150px;
+            animation: pulse 15s infinite linear;
+        }
+
+        .career-advice-career-hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0) 70%);
+            bottom: -100px;
+            left: -100px;
+            animation: pulse 12s infinite linear reverse;
+        }
+
+        .career-advice-career-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: #1f2937;
+            font-weight: 900;
+            line-height: 1.2;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .career-advice-career-hero .career-advice-highlight {
+            color: #3b82f6;
+            position: relative;
+            display: inline-block;
+        }
+
+        .career-advice-career-hero .career-advice-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: rgba(59, 130, 246, 0.2);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .career-advice-career-hero p {
+            font-size: 1.35rem;
+            color: #6b7280;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        /* Tips Section */
+        .career-advice-tips-section {
+            background: white;
+        }
+
+        .career-advice-tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .career-advice-tip-card {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(40px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-advice-tip-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .career-advice-tip-card:hover::before {
+            height: 100%;
+        }
+
+        .career-advice-tip-card:nth-child(1) { animation: fadeInUp 1s ease 0.2s forwards; }
+        .career-advice-tip-card:nth-child(2) { animation: fadeInUp 1s ease 0.4s forwards; }
+        .career-advice-tip-card:nth-child(3) { animation: fadeInUp 1s ease 0.6s forwards; }
+
+        .career-advice-tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .career-advice-tip-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 28px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-advice-tip-card:hover .career-advice-tip-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .career-advice-tip-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #1f2937;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-advice-tip-card p {
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-advice-tip-card ul {
+            list-style: none;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-advice-tip-card li {
+            margin-bottom: 12px;
+            color: #6b7280;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .career-advice-tip-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        /* Resources Section */
+        .career-advice-resources-section {
+            background: #f9fafb;
+        }
+
+        .career-advice-resources-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .career-advice-accordion-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 4px solid transparent;
+        }
+
+        .career-advice-accordion-item:nth-child(1) { animation: fadeInUp 1s ease 0.2s forwards; }
+        .career-advice-accordion-item:nth-child(2) { animation: fadeInUp 1s ease 0.4s forwards; }
+        .career-advice-accordion-item:nth-child(3) { animation: fadeInUp 1s ease 0.6s forwards; }
+        .career-advice-accordion-item:nth-child(4) { animation: fadeInUp 1s ease 0.8s forwards; }
+
+        .career-advice-accordion-item.active {
+            border-left-color: #3b82f6;
+        }
+
+        .career-advice-accordion-header {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .career-advice-accordion-header:hover {
+            background: #f8fafc;
+        }
+
+        .career-advice-accordion-header h3 {
+            font-size: 1.3rem;
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .career-advice-accordion-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .career-advice-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .career-advice-accordion-content-inner {
+            padding: 0 25px 25px;
+        }
+
+        .career-advice-accordion-content p {
+            color: #6b7280;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .career-advice-accordion-content a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .career-advice-accordion-content a:hover {
+            color: #2563eb;
+            gap: 12px;
+        }
+
+        .career-advice-accordion-item.active .career-advice-accordion-icon {
+            transform: rotate(180deg);
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Success Stories */
+        .career-advice-stories-section {
+            background: white;
+        }
+
+        .career-advice-stories-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .career-advice-story-card {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .career-advice-story-card.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .career-advice-story-card .career-advice-quote-icon {
+            font-size: 42px;
+            color: #3b82f6;
+            margin-bottom: 25px;
+            opacity: 0.3;
+        }
+
+        .career-advice-story-card p {
+            color: #6b7280;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .career-advice-story-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .career-advice-author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .career-advice-author-info h4 {
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .career-advice-author-info p {
+            color: #6b7280;
+            margin: 0;
+            font-style: normal;
+            font-size: 1rem;
+        }
+
+        .career-advice-slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .career-advice-slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .career-advice-slider-dot.active {
+            background: #3b82f6;
+            transform: scale(1.3);
+        }
+
+        .career-advice-slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .career-advice-slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .career-advice-slider-btn:hover {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        /* CTA Section */
+        .career-advice-career-cta {
+            background: linear-gradient(135deg, #3b82f6 0%, #4286f6 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-advice-career-cta::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23FFFFFF' fill-opacity='0.1'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        .career-advice-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .career-advice-career-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .career-advice-career-cta p {
+            font-size: 1.25rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        /* Floating elements */
+        .career-advice-floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .career-advice-float-1 {
+            width: 150px;
+            height: 150px;
+            background: white;
+            top: 20%;
+            left: 10%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .career-advice-float-2 {
+            width: 100px;
+            height: 100px;
+            background: white;
+            bottom: 10%;
+            right: 15%;
+            animation: float 18s infinite ease-in-out reverse;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes backgroundMove {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100px 100px;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .career-advice-career-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .career-advice-tips-grid {
+                gap: 30px;
+            }
+            
+            .career-advice-tip-card {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .career-advice-stories-slider {
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .career-advice-career-hero {
+                margin-top: 70px;
+                padding: 80px 20px;
+            }
+            
+            .career-advice-career-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .career-advice-section {
+                padding: 80px 0;
+            }
+            
+            .career-advice-section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .career-advice-tip-card {
+                padding: 25px;
+            }
+            
+            .career-advice-story-card {
+                padding: 30px;
+            }
+            
+            .career-advice-stories-slider {
+                height: 500px;
+            }
+            
+            .career-advice-career-cta {
+                padding: 80px 0;
+            }
+            
+            .career-advice-career-cta h2 {
+                font-size: 2.3rem;
+            }
+            
+            .career-advice-slider-nav {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .career-advice-tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .career-advice-stories-slider {
+                height: 550px;
+            }
+            
+            .career-advice-story-card p {
+                font-size: 1.1rem;
+            }
+            
+            .career-advice-story-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .career-advice-accordion-header {
+                padding: 20px;
+            }
+            
+            .career-advice-accordion-header h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .career-advice-career-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .career-advice-career-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .career-advice-section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .career-advice-section-title p {
+                font-size: 1rem;
+            }
+            
+            .career-advice-tip-card {
+                padding: 20px;
+            }
+            
+            .career-advice-tip-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .career-advice-tip-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .career-advice-story-card {
+                padding: 25px;
+            }
+            
+            .career-advice-story-card p {
+                font-size: 1rem;
+            }
+            
+            .career-advice-stories-slider {
+                height: 500px;
+            }
+            
+            .career-advice-career-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .career-advice-career-cta p {
+                font-size: 1.1rem;
+            }
+            
+            .career-advice-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            
+            .career-advice-accordion-content-inner {
+                padding: 0 20px 20px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .career-advice-stories-slider {
+                height: 580px;
+            }
+            
+            .career-advice-author-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }

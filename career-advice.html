@@ -7,676 +7,73 @@
     <title>Career Advice - FITLY FIND</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="assets/styles/style.css">
 
-        :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --secondary: #10b981;
-            --dark: #1f2937;
-            --light: #f9fafb;
-            --gray: #6b7280;
-            --accent: #8b5cf6;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f6f8fa;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            padding: 14px 28px;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            font-size: 1.05em;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            width: 100%;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
-        }
-
-        .btn-success:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #7c3aed 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
-        }
-
-        .section {
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-            font-weight: 800;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            font-size: 1.15rem;
-            color: var(--gray);
-            font-weight: 500;
-            max-width: 600px;
-            margin: 20px auto 0;
-        }
-
-        /* Career Hero Section */
-        .career-hero {
-            margin-top: 80px;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            padding: 120px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .career-hero::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
-            top: -150px;
-            right: -150px;
-            animation: pulse 15s infinite linear;
-        }
-
-        .career-hero::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0) 70%);
-            bottom: -100px;
-            left: -100px;
-            animation: pulse 12s infinite linear reverse;
-        }
-
-        .career-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 25px;
-            color: var(--dark);
-            font-weight: 900;
-            line-height: 1.2;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
-
-        .career-hero .highlight {
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-        }
-
-        .career-hero .highlight::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: rgba(59, 130, 246, 0.2);
-            z-index: -1;
-            border-radius: 4px;
-        }
-
-        .career-hero p {
-            font-size: 1.35rem;
-            color: var(--gray);
-            margin-bottom: 50px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
-
-        /* Tips Section */
-        .tips-section {
-            background: white;
-        }
-
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .tip-card {
-            background: var(--light);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(40px);
-        }
-
-        .tip-card:nth-child(1) { animation: fadeInUp 1s ease 0.2s forwards; }
-        .tip-card:nth-child(2) { animation: fadeInUp 1s ease 0.4s forwards; }
-        .tip-card:nth-child(3) { animation: fadeInUp 1s ease 0.6s forwards; }
-
-        .tip-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .tip-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            color: white;
-            font-size: 28px;
-            transition: var(--transition);
-        }
-
-        .tip-card:hover .tip-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .tip-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .tip-card p {
-            color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        .tip-card ul {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .tip-card li {
-            margin-bottom: 12px;
-            color: var(--gray);
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .tip-card li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Resources Section */
-        .resources-section {
-            background: var(--light);
-        }
-
-        .resources-accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .accordion-item {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
-        }
-
-        .accordion-item:nth-child(1) { animation: fadeInUp 1s ease 0.2s forwards; }
-        .accordion-item:nth-child(2) { animation: fadeInUp 1s ease 0.4s forwards; }
-        .accordion-item:nth-child(3) { animation: fadeInUp 1s ease 0.6s forwards; }
-        .accordion-item:nth-child(4) { animation: fadeInUp 1s ease 0.8s forwards; }
-
-        .accordion-header {
-            padding: 25px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            transition: var(--transition);
-        }
-
-        .accordion-header:hover {
-            background: #f8fafc;
-        }
-
-        .accordion-header h3 {
-            font-size: 1.3rem;
-            color: var(--dark);
-            font-weight: 600;
-        }
-
-        .accordion-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .accordion-content-inner {
-            padding: 0 25px 25px;
-        }
-
-        .accordion-content p {
-            color: var(--gray);
-            margin-bottom: 15px;
-            line-height: 1.7;
-        }
-
-        .accordion-content a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .accordion-content a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Success Stories */
-        .stories-section {
-            background: white;
-        }
-
-        .stories-slider {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            height: 400px;
-        }
-
-        .story-card {
-            background: var(--light);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            position: absolute;
-            width: 100%;
-            opacity: 0;
-            transform: translateX(100px);
-            transition: var(--transition);
-        }
-
-        .story-card.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .story-card .quote-icon {
-            font-size: 42px;
-            color: var(--primary);
-            margin-bottom: 25px;
-            opacity: 0.3;
-        }
-
-        .story-card p {
-            color: var(--gray);
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        .story-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-        }
-
-        .author-info h4 {
-            color: var(--dark);
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: var(--gray);
-            margin: 0;
-            font-style: normal;
-            font-size: 1rem;
-        }
-
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #cbd5e1;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .slider-dot.active {
-            background: var(--primary);
-            transform: scale(1.3);
-        }
-
-        /* CTA Section */
-        .career-cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .career-cta::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='1' fill='%23FFFFFF' fill-opacity='0.1'/%3E%3C/svg%3E");
-            background-size: 100px 100px;
-            animation: backgroundMove 20s linear infinite;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .career-cta h2 {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .career-cta p {
-            font-size: 1.25rem;
-            margin-bottom: 50px;
-            opacity: 0.9;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
-
-        /* Floating elements */
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .float-1 {
-            width: 150px;
-            height: 150px;
-            background: white;
-            top: 20%;
-            left: 10%;
-            animation: float 15s infinite ease-in-out;
-        }
-
-        .float-2 {
-            width: 100px;
-            height: 100px;
-            background: white;
-            bottom: 10%;
-            right: 15%;
-            animation: float 18s infinite ease-in-out reverse;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.7;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(10deg);
-            }
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-        }
-
-        @keyframes backgroundMove {
-            from {
-                background-position: 0 0;
-            }
-            to {
-                background-position: 100px 100px;
-            }
-        }
-
-        /* Responsive styles */
-        @media (max-width: 1024px) {
-            .career-hero h1 {
-                font-size: 3rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .career-hero {
-                margin-top: 70px;
-                padding: 80px 20px;
-            }
-            
-            .career-hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.3rem;
-            }
-            
-            .tip-card {
-                padding: 30px;
-            }
-            
-            .story-card {
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .career-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .career-hero p {
-                font-size: 1.1rem;
-            }
-            
-            .tip-card {
-                padding: 25px;
-            }
-            
-            .career-cta h2 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Career Hero Section -->
-    <section class="career-hero">
+        <header class="header">
         <div class="container">
-            <h1>Your <span class="highlight">Career Journey</span> Starts Here</h1>
+            <div class="logo">
+                <a href="/" class="logo" style="text-decoration: none; color: inherit;">
+                    <img src="assets/images/filthyfind.jpg" alt="FITLY FIND Logo" class="logo-img" />
+                    <span class="logo-text">
+                      <span class="logo-title">
+                        FITLY <span style="color: #454f5e;">FIND</span>
+                        <p style="font-size: 10px; margin: 0;">Right Fit, <span style="color: #3d4654;">Right Here!</span></p>
+                      </span>
+                    </span>
+                  </a>
+                  
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#Job">Find Jobs</a></li>
+                    <li><a href="#companies">Companies</a></li>
+                    <li><a href="career-advice.html">Career Advice</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" onclick="toggleMobileSidebar()">☰</button>
+            <div class="header-buttons">
+                <button class="btn btn-primary d" onclick="openEnrollForm()">Get Started</button>
+                <button class="btn btn-success d" onclick="openEnrollForm()">Enroll Now</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobileSidebar" class="mobile-sidebar">
+        <button class="close-sidebar" onclick="toggleMobileSidebar()">&times;</button>
+        <ul class="mobile-nav">
+            <li><a href="#jobs" onclick="toggleMobileSidebar()"><i class="fas fa-search"></i>Find Jobs</a></li>
+            <li><a href="#companies" onclick="toggleMobileSidebar()"><i class="fas fa-building"></i>Companies</a></li>
+            <li><a href="career-advice.html" onclick="toggleMobileSidebar()"><i class="fas fa-lightbulb"></i>Career Advice</a></li>
+            <li><a href="about-us.html" onclick="toggleMobileSidebar()"><i class="fas fa-info-circle"></i>About</a></li>
+        </ul>
+        <div class="mobile-buttons">
+            <button class="btn btn-primary" onclick="openEnrollForm(); toggleMobileSidebar()">Get Started</button>
+            <button class="btn btn-success" onclick="openEnrollForm(); toggleMobileSidebar()">Enroll Now</button>
+        </div>
+    </div>
+    <!-- Career Hero Section -->
+    <section class="career-advice-career-hero">
+        <div class="career-advice-container">
+            <h1>Your <span class="career-advice-highlight">Career Journey</span> Starts Here</h1>
             <p>Expert advice to help you navigate your career path, improve your skills, and land your dream job through intelligent matching.</p>
-            <a href="#" class="btn btn-primary">Get Matched Now</a>
+            <a href="#" class="career-advice-btn career-advice-btn-primary">Get Matched Now</a>
         </div>
     </section>
 
     <!-- Tips Section -->
-    <section class="tips-section section">
-        <div class="container">
-            <div class="section-title">
+    <section class="career-advice-tips-section career-advice-section">
+        <div class="career-advice-container">
+            <div class="career-advice-section-title">
                 <h2>Career Success Tips</h2>
                 <p>Expert advice to boost your career and improve your job search</p>
             </div>
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <div class="tip-icon">
+            <div class="career-advice-tips-grid">
+                <div class="career-advice-tip-card">
+                    <div class="career-advice-tip-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3>Resume Optimization</h3>
@@ -689,8 +86,8 @@
                         <li>Update regularly with new skills</li>
                     </ul>
                 </div>
-                <div class="tip-card">
-                    <div class="tip-icon">
+                <div class="career-advice-tip-card">
+                    <div class="career-advice-tip-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3>Interview Preparation</h3>
@@ -703,8 +100,8 @@
                         <li>Follow up with a thank you note</li>
                     </ul>
                 </div>
-                <div class="tip-card">
-                    <div class="tip-icon">
+                <div class="career-advice-tip-card">
+                    <div class="career-advice-tip-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Career Growth</h3>
@@ -722,66 +119,66 @@
     </section>
 
     <!-- Resources Section -->
-    <section class="resources-section section">
-        <div class="container">
-            <div class="section-title">
+    <section class="career-advice-resources-section career-advice-section">
+        <div class="career-advice-container">
+            <div class="career-advice-section-title">
                 <h2>Career Resources</h2>
                 <p>Expand your knowledge with our curated career development resources</p>
             </div>
-            <div class="resources-accordion">
-                <div class="accordion-item">
-                    <div class="accordion-header">
+            <div class="career-advice-resources-accordion">
+                <div class="career-advice-accordion-item">
+                    <div class="career-advice-accordion-header">
                         <h3>Resume & Cover Letter Templates</h3>
-                        <div class="accordion-icon">
+                        <div class="career-advice-accordion-icon">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
+                    <div class="career-advice-accordion-content">
+                        <div class="career-advice-accordion-content-inner">
                             <p>Access our collection of professionally designed templates tailored to different industries and experience levels.</p>
-                            <a href="#">Download Templates</a>
+                            <a href="#">Download Templates <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
+                <div class="career-advice-accordion-item">
+                    <div class="career-advice-accordion-header">
                         <h3>Industry Salary Guides</h3>
-                        <div class="accordion-icon">
+                        <div class="career-advice-accordion-icon">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
+                    <div class="career-advice-accordion-content">
+                        <div class="career-advice-accordion-content-inner">
                             <p>Stay informed about current salary ranges in your industry and location to negotiate better offers.</p>
-                            <a href="#">View Salary Guides</a>
+                            <a href="#">View Salary Guides <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
+                <div class="career-advice-accordion-item">
+                    <div class="career-advice-accordion-header">
                         <h3>Skill Assessment Tools</h3>
-                        <div class="accordion-icon">
+                        <div class="career-advice-accordion-icon">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
+                    <div class="career-advice-accordion-content">
+                        <div class="career-advice-accordion-content-inner">
                             <p>Evaluate your current skillset and identify areas for improvement with our assessment tools.</p>
-                            <a href="#">Take Assessment</a>
+                            <a href="#">Take Assessment <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
+                <div class="career-advice-accordion-item">
+                    <div class="career-advice-accordion-header">
                         <h3>Networking Strategies</h3>
-                        <div class="accordion-icon">
+                        <div class="career-advice-accordion-icon">
                             <i class="fas fa-chevron-down"></i>
                         </div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="accordion-content-inner">
+                    <div class="career-advice-accordion-content">
+                        <div class="career-advice-accordion-content-inner">
                             <p>Learn how to build and maintain a professional network that can advance your career.</p>
-                            <a href="#">Read Guide</a>
+                            <a href="#">Read Guide <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -790,84 +187,226 @@
     </section>
 
     <!-- Success Stories Section -->
-    <section class="stories-section section">
-        <div class="container">
-            <div class="section-title">
+    <section class="career-advice-stories-section career-advice-section">
+        <div class="career-advice-container">
+            <div class="career-advice-section-title">
                 <h2>Success Stories</h2>
                 <p>Real people who found their perfect career match through FITLY FIND</p>
             </div>
-            <div class="stories-slider">
-                <div class="story-card active">
-                    <div class="quote-icon">
+            <div class="career-advice-stories-slider">
+                <div class="career-advice-story-card active">
+                    <div class="career-advice-quote-icon">
                         <i class="fas fa-quote-left"></i>
                     </div>
                     <p>"After months of unsuccessful job searching, FITLY FIND matched me with a company that perfectly aligned with my skills and values. I started my dream job just two weeks after creating my profile!"</p>
-                    <div class="story-author">
-                        <div class="author-avatar">
+                    <div class="career-advice-story-author">
+                        <div class="career-advice-author-avatar">
                             <i class="fas fa-user"></i>
                         </div>
-                        <div class="author-info">
+                        <div class="career-advice-author-info">
                             <h4>Jennifer L.</h4>
                             <p>Software Developer at TechVision</p>
                         </div>
                     </div>
                 </div>
-                <div class="story-card">
-                    <div class="quote-icon">
+                <div class="career-advice-story-card">
+                    <div class="career-advice-quote-icon">
                         <i class="fas fa-quote-left"></i>
                     </div>
                     <p>"The career advice and matching algorithm helped me transition from marketing to product management. The resources provided gave me the confidence to make this career change successfully."</p>
-                    <div class="story-author">
-                        <div class="author-avatar">
+                    <div class="career-advice-story-author">
+                        <div class="career-advice-author-avatar">
                             <i class="fas fa-user"></i>
                         </div>
-                        <div class="author-info">
+                        <div class="career-advice-author-info">
                             <h4>Michael T.</h4>
                             <p>Product Manager at InnovateCo</p>
                         </div>
                     </div>
                 </div>
-                <div class="story-card">
-                    <div class="quote-icon">
+                <div class="career-advice-story-card">
+                    <div class="career-advice-quote-icon">
                         <i class="fas fa-quote-left"></i>
                     </div>
                     <p>"As a hiring manager, FITLY FIND has revolutionized our recruitment process. We're now connecting with candidates who are genuinely interested in our mission and well-matched to our needs."</p>
-                    <div class="story-author">
-                        <div class="author-avatar">
+                    <div class="career-advice-story-author">
+                        <div class="career-advice-author-avatar">
                             <i class="fas fa-user"></i>
                         </div>
-                        <div class="author-info">
+                        <div class="career-advice-author-info">
                             <h4>Sarah J.</h4>
                             <p>HR Director at GreenSolutions</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="slider-controls">
-                <div class="slider-dot active"></div>
-                <div class="slider-dot"></div>
-                <div class="slider-dot"></div>
+            <div class="career-advice-slider-controls">
+                <div class="career-advice-slider-dot active"></div>
+                <div class="career-advice-slider-dot"></div>
+                <div class="career-advice-slider-dot"></div>
+            </div>
+            <div class="career-advice-slider-nav">
+                <div class="career-advice-slider-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="career-advice-slider-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="career-cta">
-        <div class="floating-element float-1"></div>
-        <div class="floating-element float-2"></div>
-        <div class="container">
-            <div class="cta-content">
+    <section class="career-advice-career-cta">
+        <div class="career-advice-floating-element career-advice-float-1"></div>
+        <div class="career-advice-floating-element career-advice-float-2"></div>
+        <div class="career-advice-container">
+            <div class="career-advice-cta-content">
                 <h2>Ready to Advance Your Career?</h2>
                 <p>Join thousands of professionals who have found their perfect match through our intelligent platform.</p>
-                <a href="#" class="btn btn-success">Create Your Profile</a>
+                <a href="#" class="career-advice-btn career-advice-btn-success">Create Your Profile</a>
             </div>
         </div>
     </section>
 
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section animate slide-up delay-1">
+                    <h3>For Job Seekers</h3>
+                    <ul>
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-2">
+                    <h3>For Employers</h3>
+                    <ul>
+                        <li><a href="#">Post Jobs</a></li>
+                        <li><a href="#">Search Resumes</a></li>
+                        <li><a href="#">Hiring Solutions</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-3">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-4">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                      </div>
+                      
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo animate fade-in delay-5">
+                    <img src="assets/images/filthyfind.jpg" alt="FITLY FIND Logo" class="logo-img" />
+                    <div>
+                        <span class="logo-title">FITLY FIND</span><br>
+                        <span class="logo-tagline">Right Fit, Right Here!</span>
+                    </div>
+                </div>
+                <div class="copyright animate fade-in delay-6">
+                    © Developed by Alphagon Digital. All rights reserved.
+                    <div class="terms-line">
+                        <a href="terms-Condition.html">Terms and Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="enrollModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Company Enrollment</h2>
+                <button class="close-btn" onclick="closeEnrollForm()">&times;</button>
+            </div>
+            <form id="enrollForm" onsubmit="submitEnrollForm(event)">
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-cancel" onclick="closeEnrollForm()">Cancel</button>
+                    <button type="submit" class="btn btn-submit">Submit Enrollment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Feedback Button -->
+    <div class="feedback-button" id="feedbackButton">
+        <i class="fas fa-comment-alt"> 
+        </i>
+
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <h3>Send us your feedback</h3>
+        <form class="feedback-form" id="feedbackForm">
+            <div class="form-group">
+                <label for="feedbackName">Your Name</label>
+                <input type="text" id="feedbackName" required>
+            </div>
+            <div class="form-group">
+                <label for="feedbackEmail">Email</label>
+                <input type="email" id="feedbackEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="feedbackMessage">Message</label>
+                <textarea id="feedbackMessage" required></textarea>
+            </div>
+            <div class="form-group file-upload">
+                <input type="file" id="feedbackFile" style="display: none;">
+                <label for="feedbackFile" class="file-upload-label">
+                    <i class="fas fa-paperclip"></i> Attach File
+                </label>
+                <div class="file-name" id="fileName"></div>
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="btn-cancel" id="cancelFeedback">Cancel</button>
+                <button type="submit" class="btn-submit">Send Feedback</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="feedbackOverlay"></div>
+    <div id="toastContainer"
+        style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Accordion functionality
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            const accordionHeaders = document.querySelectorAll('.career-advice-accordion-header');
             
             accordionHeaders.forEach(header => {
                 header.addEventListener('click', function() {
@@ -875,10 +414,10 @@
                     const accordionContent = this.nextElementSibling;
                     
                     // Close all other accordion items
-                    document.querySelectorAll('.accordion-item').forEach(item => {
+                    document.querySelectorAll('.career-advice-accordion-item').forEach(item => {
                         if (item !== accordionItem) {
                             item.classList.remove('active');
-                            item.querySelector('.accordion-content').style.maxHeight = null;
+                            item.querySelector('.career-advice-accordion-content').style.maxHeight = null;
                         }
                     });
                     
@@ -894,9 +433,12 @@
             });
             
             // Story slider functionality
-            const storyCards = document.querySelectorAll('.story-card');
-            const dots = document.querySelectorAll('.slider-dot');
+            const storyCards = document.querySelectorAll('.career-advice-story-card');
+            const dots = document.querySelectorAll('.career-advice-slider-dot');
+            const prevBtn = document.querySelector('.career-advice-slider-btn.prev');
+            const nextBtn = document.querySelector('.career-advice-slider-btn.next');
             let currentSlide = 0;
+            let slideInterval;
             
             function showSlide(index) {
                 // Hide all slides
@@ -909,19 +451,47 @@
                 currentSlide = index;
             }
             
-            // Add click events to dots
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => showSlide(index));
-            });
-            
-            // Auto-advance slides
-            setInterval(() => {
+            function nextSlide() {
                 currentSlide = (currentSlide + 1) % storyCards.length;
                 showSlide(currentSlide);
-            }, 5000);
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + storyCards.length) % storyCards.length;
+                showSlide(currentSlide);
+            }
+            
+            // Add click events to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    showSlide(index);
+                    startSliderInterval();
+                });
+            });
+            
+            // Add click events to navigation buttons
+            nextBtn.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                nextSlide();
+                startSliderInterval();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                prevSlide();
+                startSliderInterval();
+            });
+            
+            function startSliderInterval() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Start the slider
+            startSliderInterval();
             
             // Animate elements on scroll
-            const animatedElements = document.querySelectorAll('.tip-card, .accordion-item, .section-title');
+            const animatedElements = document.querySelectorAll('.career-advice-tip-card, .career-advice-accordion-item, .career-advice-section-title');
             
             const observerOptions = {
                 threshold: 0.1,
@@ -933,13 +503,54 @@
                     if (entry.isIntersecting) {
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
             
             animatedElements.forEach(element => observer.observe(element));
+            
+            // Handle mobile menu
+            const mobileMenuBtn = document.querySelector('.career-advice-mobile-menu-btn');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Handle window resize for responsive adjustments
+            function handleResize() {
+                // Adjust story slider height based on content
+                const activeStory = document.querySelector('.career-advice-story-card.active');
+                if (activeStory) {
+                    const storiesSlider = document.querySelector('.career-advice-stories-slider');
+                    storiesSlider.style.height = activeStory.scrollHeight + 'px';
+                }
+                
+                // Close mobile menu if open on resize
+                if (window.innerWidth > 768 && mainNav && mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
+                }
+            }
+            
+            // Initial resize handling
+            handleResize();
+            
+            // Listen for resize events
+            window.addEventListener('resize', handleResize);
+            
+            // Adjust accordion content heights when opened
+            document.querySelectorAll('.career-advice-accordion-item.active').forEach(item => {
+                const content = item.querySelector('.career-advice-accordion-content');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            });
         });
     </script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
