@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITLY FIND - Right Fit, Right Here!</title>
+    <meta name="description"
+        content="Connect with top employers and find your perfect job opportunity. Search thousands of jobs and take the next step in your career.">
+    <meta name="author" content="FITLY FIND Platform">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/" class="logo" style="text-decoration: none; color: inherit;">
+                    <img src="assets/images/filthyfind.jpg" alt="FITLY FIND Logo" class="logo-img" />
+                    <span class="logo-text">
+                        <span class="logo-title">
+                            FITLY <span style="color: #454f5e;">FIND</span>
+                            <p style="font-size: 10px; margin: 0;">Right Fit, <span style="color: #3d4654;">Right
+                                    Here!</span></p>
+                        </span>
+                    </span>
+                </a>
+
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="Find-job.html">Find Jobs</a></li>
+                    <li><a href="companies.html">Companies</a></li>
+                    <li><a href="career-advice.html">Career Advice</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" onclick="toggleMobileSidebar()">☰</button>
+            <div class="header-buttons">
+                <button class="btn btn-primary d" onclick="openEnrollForm()">Get Started</button>
+                <button class="btn btn-success d" onclick="openEnrollForm()">Enroll Now</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobileSidebar" class="mobile-sidebar">
+        <button class="close-sidebar" onclick="toggleMobileSidebar()">&times;</button>
+        <ul class="mobile-nav">
+            <li><a href="Find-job.html" onclick="toggleMobileSidebar()"><i class="fas fa-search"></i>Find Jobs</a></li>
+            <li><a href="companies.html" onclick="toggleMobileSidebar()"><i class="fas fa-building"></i>Companies</a>
+            </li>
+            <li><a href="career-advice.html" onclick="toggleMobileSidebar()"><i class="fas fa-lightbulb"></i>Career
+                    Advice</a></li>
+            <li><a href="about-us.html" onclick="toggleMobileSidebar()"><i class="fas fa-info-circle"></i>About</a></li>
+        </ul>
+        <div class="mobile-buttons">
+            <button class="btn btn-primary" onclick="openEnrollForm(); toggleMobileSidebar()">Get Started</button>
+            <button class="btn btn-success" onclick="openEnrollForm(); toggleMobileSidebar()">Enroll Now</button>
+        </div>
+    </div>
+
+
+        <!-- Header Section -->
+    <section class="find-job-header">
+        <div class="find-job-container">
+            <h1>Find Your Dream Job</h1>
+            <p>Complete your profile to get matched with the perfect opportunities tailored to your skills and experience.</p>
+        </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="find-job-container">
+        <div class="find-job-progress-bar">
+            <div class="find-job-progress-bar-progress" id="find-job-progressBar"></div>
+            <div class="find-job-progress-step find-job-active">
+                <div class="find-job-progress-step-number">1</div>
+                <div class="find-job-progress-step-label">Personal Info</div>
+            </div>
+            <div class="find-job-progress-step">
+                <div class="find-job-progress-step-number">2</div>
+                <div class="find-job-progress-step-label">Experience</div>
+            </div>
+            <div class="find-job-progress-step">
+                <div class="find-job-progress-step-number">3</div>
+                <div class="find-job-progress-step-label">Education</div>
+            </div>
+            <div class="find-job-progress-step">
+                <div class="find-job-progress-step-number">4</div>
+                <div class="find-job-progress-step-label">Documents</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Form -->
+    <div class="find-job-container">
+        <form class="find-job-application-form" id="find-job-applicationForm">
+            <!-- Personal Information Section -->
+            <div class="find-job-form-section">
+                <div class="find-job-form-section-title">
+                    <div class="find-job-form-section-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h2>Personal Information</h2>
+                </div>
+                
+                <div class="find-job-form-grid">
+                    <div class="find-job-form-group">
+                        <div class="find-job-floating-label-group">
+                            <input type="text" id="find-job-fullName" class="find-job-form-control" placeholder="John Doe" required>
+                            <label class="find-job-floating-label">Full Name *</label>
+                            <div class="find-job-error-message" id="find-job-fullNameError">Please enter your full name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="find-job-form-group">
+                        <div class="find-job-floating-label-group">
+                            <input type="email" id="find-job-email" class="find-job-form-control" placeholder="john.doe@example.com" required>
+                            <label class="find-job-floating-label">Email Address *</label>
+                            <div class="find-job-error-message" id="find-job-emailError">Please enter a valid email address</div>
+                        </div>
+                    </div>
+                    
+                    <div class="find-job-form-group">
+                        <div class="find-job-floating-label-group">
+                            <input type="tel" id="find-job-phone" class="find-job-form-control" placeholder="+1 (555) 123-4567" required>
+                            <label class="find-job-floating-label">Phone Number *</label>
+                            <div class="find-job-error-message" id="find-job-phoneError">Please enter a valid phone number</div>
+                        </div>
+                    </div>
+                    
+                    <div class="find-job-form-group">
+                        <div class="find-job-floating-label-group">
+                            <input type="text" id="find-job-location" class="find-job-form-control" placeholder="City, Country" required>
+                            <label class="find-job-floating-label">Current Location *</label>
+                            <div class="find-job-error-message" id="find-job-locationError">Please enter your location</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="find-job-form-group">
+                    <div class="find-job-floating-label-group">
+                        <textarea id="find-job-about" class="find-job-form-control" placeholder=" " required></textarea>
+                        <label class="find-job-floating-label">Professional Summary *</label>
+                        <div class="find-job-error-message" id="find-job-aboutError">Please provide a professional summary</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Work Experience Section -->
+            <div class="find-job-form-section">
+                <div class="find-job-form-section-title">
+                    <div class="find-job-form-section-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h2>Work Experience</h2>
+                </div>
+                
+                <div class="find-job-experience-entries" id="find-job-experienceEntries">
+                    <div class="find-job-experience-entry">
+                        <div class="find-job-form-grid">
+                            <div class="find-job-form-group">
+                                <div class="find-job-floating-label-group">
+                                    <input type="text" class="find-job-form-control find-job-job-title" placeholder=" " required>
+                                    <label class="find-job-floating-label">Job Title *</label>
+                                    <div class="find-job-error-message">Please enter your job title</div>
+                                </div>
+                            </div>
+                            
+                            <div class="find-job-form-group">
+                                <div class="find-job-floating-label-group">
+                                    <input type="text" class="find-job-form-control find-job-company" placeholder=" " required>
+                                    <label class="find-job-floating-label">Company *</label>
+                                    <div class="find-job-error-message">Please enter company name</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="find-job-form-grid">
+                            <div class="find-job-form-group">
+                                <label>Start Date *</label>
+                                <div class="find-job-date-inputs">
+                                    <select class="find-job-form-control find-job-start-month" required>
+                                        <option value="">Month</option>
+                                        <option value="01">January</option>
+                                        <option value="02">February</option>
+                                        <option value="03">March</option>
+                                        <option value="04">April</option>
+                                        <option value="05">May</option>
+                                        <option value="06">June</option>
+                                        <option value="07">July</option>
+                                        <option value="08">August</option>
+                                        <option value="09">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <select class="find-job-form-control find-job-start-year" required>
+                                        <option value="">Year</option>
+                                        <!-- Years will be populated by JavaScript -->
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="find-job-form-group">
+                                <label>End Date</label>
+                                <div class="find-job-date-inputs">
+                                    <select class="find-job-form-control find-job-end-month">
+                                        <option value="">Month</option>
+                                        <option value="01">January</option>
+                                        <option value="02">February</option>
+                                        <option value="03">March</option>
+                                        <option value="04">April</option>
+                                        <option value="05">May</option>
+                                        <option value="06">June</option>
+                                        <option value="07">July</option>
+                                        <option value="08">August</option>
+                                        <option value="09">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <select class="find-job-form-control find-job-end-year">
+                                        <option value="">Year</option>
+                                        <!-- Years will be populated by JavaScript -->
+                                    </select>
+                                </div>
+                                <div class="find-job-form-check" style="margin-top: 10px;">
+                                    <input type="checkbox" class="find-job-current-job"> I currently work here
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="find-job-form-group">
+                            <div class="find-job-floating-label-group">
+                                <textarea class="find-job-form-control find-job-job-description" placeholder=" " required></textarea>
+                                <label class="find-job-floating-label">Responsibilities & Achievements *</label>
+                                <div class="find-job-error-message">Please describe your responsibilities</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="find-job-btn find-job-btn-secondary" id="find-job-addExperience">
+                    <i class="fas fa-plus"></i> Add Another Position
+                </button>
+            </div>
+            
+            <!-- Education Section -->
+            <div class="find-job-form-section">
+                <div class="find-job-form-section-title">
+                    <div class="find-job-form-section-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h2>Education</h2>
+                </div>
+                
+                <div class="find-job-education-entries" id="find-job-educationEntries">
+                    <div class="find-job-education-entry">
+                        <div class="find-job-form-grid">
+                            <div class="find-job-form-group">
+                                <div class="find-job-floating-label-group">
+                                    <input type="text" class="find-job-form-control find-job-degree" placeholder=" " required>
+                                    <label class="find-job-floating-label">Degree *</label>
+                                    <div class="find-job-error-message">Please enter your degree</div>
+                                </div>
+                            </div>
+                            
+                            <div class="find-job-form-group">
+                                <div class="find-job-floating-label-group">
+                                    <input type="text" class="find-job-form-control find-job-institution" placeholder=" " required>
+                                    <label class="find-job-floating-label">Institution *</label>
+                                    <div class="find-job-error-message">Please enter institution name</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="find-job-form-grid">
+                            <div class="find-job-form-group">
+                                <div class="find-job-floating-label-group">
+                                    <input type="text" class="find-job-form-control find-job-field" placeholder=" " required>
+                                    <label class="find-job-floating-label">Field of Study *</label>
+                                    <div class="find-job-error-message">Please enter field of study</div>
+                                </div>
+                            </div>
+                            
+                            <div class="find-job-form-group">
+                                <label>Graduation Year *</label>
+                                <select class="find-job-form-control find-job-graduation-year" required>
+                                    <option value="">Select Year</option>
+                                    <!-- Years will be populated by JavaScript -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="find-job-btn find-job-btn-secondary" id="find-job-addEducation">
+                    <i class="fas fa-plus"></i> Add Another Degree
+                </button>
+            </div>
+            
+            <!-- Skills Section -->
+            <div class="find-job-form-section">
+                <div class="find-job-form-section-title">
+                    <div class="find-job-form-section-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h2>Skills & Expertise</h2>
+                </div>
+                
+                <div class="find-job-form-group">
+                    <div class="find-job-floating-label-group">
+                        <input type="text" id="find-job-skillsInput" class="find-job-form-control" placeholder=" ">
+                        <label class="find-job-floating-label">Add skills (press Enter after each skill)</label>
+                    </div>
+                    <div class="find-job-skill-tags" id="find-job-skillsContainer"></div>
+                    <div class="find-job-error-message" id="find-job-skillsError">Please add at least one skill</div>
+                </div>
+                
+                <div class="find-job-form-group">
+                    <div class="find-job-floating-label-group">
+                        <input type="text" id="find-job-languages" class="find-job-form-control" placeholder=" " required>
+                        <label class="find-job-floating-label">Languages *</label>
+                        <div class="find-job-error-message" id="find-job-languagesError">Please list languages you speak</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Documents Section -->
+            <div class="find-job-form-section">
+                <div class="find-job-form-section-title">
+                    <div class="find-job-form-section-icon">
+                        <i class="fas fa-file"></i>
+                    </div>
+                    <h2>Documents</h2>
+                </div>
+                
+                <div class="find-job-form-grid">
+                    <div class="find-job-form-group">
+                        <label>Upload Your Resume/CV *</label>
+                        <div class="find-job-file-upload" id="find-job-resumeUpload">
+                            <div class="find-job-file-upload-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="find-job-file-upload-text">Click to upload or drag and drop</div>
+                            <div style="color: #6b7280; font-size: 0.9rem;">PDF, DOC or DOCX (max 5MB)</div>
+                            <input type="file" class="find-job-file-upload-input" id="find-job-resumeInput" accept=".pdf,.doc,.docx" required>
+                            <div class="find-job-error-message" id="find-job-resumeError">Please upload your resume</div>
+                        </div>
+                    </div>
+                    
+                    <div class="find-job-form-group">
+                        <label>Upload Your Cover Letter</label>
+                        <div class="find-job-file-upload" id="find-job-coverLetterUpload">
+                            <div class="find-job-file-upload-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="find-job-file-upload-text">Click to upload or drag and drop</div>
+                            <div style="color: #6b7280; font-size: 0.9rem;">PDF, DOC or DOCX (max 5MB)</div>
+                            <input type="file" class="find-job-file-upload-input" id="find-job-coverLetterInput" accept=".pdf,.doc,.docx">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="find-job-form-group">
+                    <label>Portfolio Links</label>
+                    <input type="url" class="find-job-form-control" placeholder="LinkedIn Profile URL" id="find-job-linkedin">
+                    <input type="url" class="find-job-form-control" style="margin-top: 10px;" placeholder="GitHub/Behance/Dribble URL" id="find-job-portfolio1">
+                    <input type="url" class="find-job-form-control" style="margin-top: 10px;" placeholder="Personal Website/Portfolio" id="find-job-portfolio2">
+                </div>
+            </div>
+            
+            <!-- Preferences -->
+            <div class="find-job-form-section">
+                <div class="find-job-form-section-title">
+                    <div class="find-job-form-section-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h2>Job Preferences</h2>
+                </div>
+                
+                <div class="find-job-form-grid">
+                    <div class="find-job-form-group">
+                        <label for="find-job-jobType">Desired Job Type *</label>
+                        <select id="find-job-jobType" class="find-job-form-control" required>
+                            <option value="">Select Job Type</option>
+                            <option value="fulltime">Full-Time</option>
+                            <option value="parttime">Part-Time</option>
+                            <option value="contract">Contract</option>
+                            <option value="freelance">Freelance</option>
+                            <option value="internship">Internship</option>
+                        </select>
+                        <div class="find-job-error-message" id="find-job-jobTypeError">Please select a job type</div>
+                    </div>
+                    
+                    <div class="find-job-form-group">
+                        <label for="find-job-industry">Preferred Industry *</label>
+                        <select id="find-job-industry" class="find-job-form-control" required>
+                            <option value="">Select Industry</option>
+                            <option value="tech">Technology</option>
+                            <option value="finance">Finance</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="education">Education</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="find-job-error-message" id="find-job-industryError">Please select an industry</div>
+                    </div>
+                </div>
+                
+                <div class="find-job-form-group">
+                    <div class="find-job-floating-label-group">
+                        <input type="text" id="find-job-salary" class="find-job-form-control" placeholder=" ">
+                        <label class="find-job-floating-label">Expected Salary (USD)</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Form Navigation -->
+            <div class="find-job-form-navigation">
+                <button type="button" class="find-job-btn find-job-btn-secondary" id="find-job-prevBtn">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button type="button" class="find-job-btn find-job-btn-primary" id="find-job-nextBtn">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+                <button type="submit" class="find-job-btn find-job-btn-success" id="find-job-submitBtn" style="display: none;">
+                    Submit Application <i class="fas fa-check"></i>
+                </button>
+            </div>
+            
+            <div class="find-job-form-footer">
+                <p>By submitting this form, you agree to our <a href="#" style="color: #3b82f6;">Terms of Service</a> and <a href="#" style="color: #3b82f6;">Privacy Policy</a>.</p>
+            </div>
+        </form>
+
+        <!-- Success Message (Hidden Initially) -->
+        <div class="find-job-success-message" id="find-job-successMessage">
+            <div class="find-job-success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Application Submitted Successfully!</h2>
+            <p>Thank you for completing your application. Our team will review your information and match you with suitable opportunities.</p>
+            <p>You will receive a confirmation email shortly.</p>
+            <button class="find-job-btn find-job-btn-primary" style="margin-top: 20px;" id="find-job-returnHome">
+                <i class="fas fa-home"></i> Return to Home
+            </button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section animate slide-up delay-1">
+                    <h3>For Job Seekers</h3>
+                    <ul>
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-2">
+                    <h3>For Employers</h3>
+                    <ul>
+                        <li><a href="#">Post Jobs</a></li>
+                        <li><a href="#">Search Resumes</a></li>
+                        <li><a href="#">Hiring Solutions</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-3">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-4">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo animate fade-in delay-5">
+                    <img src="assets/images/filthyfind.jpg" alt="FITLY FIND Logo" class="logo-img" />
+                    <div>
+                        <span class="logo-title">FITLY FIND</span><br>
+                        <span class="logo-tagline">Right Fit, Right Here!</span>
+                    </div>
+                </div>
+                <div class="copyright animate fade-in delay-6">
+                    © Developed by Alphagon Digital. All rights reserved.
+                    <div class="terms-line">
+                        <a href="terms-Condition.html">Terms and Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="enrollModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Company Enrollment</h2>
+                <button class="close-btn" onclick="closeEnrollForm()">&times;</button>
+            </div>
+            <form id="enrollForm" onsubmit="submitEnrollForm(event)">
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-cancel" onclick="closeEnrollForm()">Cancel</button>
+                    <button type="submit" class="btn btn-submit">Submit Enrollment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Feedback Button -->
+    <div class="feedback-button" id="feedbackButton">
+        <i class="fas fa-comment-alt">
+        </i>
+
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <h3>Send us your feedback</h3>
+        <form class="feedback-form" id="feedbackForm">
+            <div class="form-group">
+                <label for="feedbackName">Your Name</label>
+                <input type="text" id="feedbackName" required>
+            </div>
+            <div class="form-group">
+                <label for="feedbackEmail">Email</label>
+                <input type="email" id="feedbackEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="feedbackMessage">Message</label>
+                <textarea id="feedbackMessage" required></textarea>
+            </div>
+            <div class="form-group file-upload">
+                <input type="file" id="feedbackFile" style="display: none;">
+                <label for="feedbackFile" class="file-upload-label">
+                    <i class="fas fa-paperclip"></i> Attach File
+                </label>
+                <div class="file-name" id="fileName"></div>
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="btn-cancel" id="cancelFeedback">Cancel</button>
+                <button type="submit" class="btn-submit">Send Feedback</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="feedbackOverlay"></div>
+    <div id="toastContainer"
+        style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
+    </div>
+</body>
+<script src="assets/js/script.js"></script>
+
+</html>

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-        <header class="header">
+    <header class="header">
         <div class="container">
             <div class="logo">
                 <a href="/" class="logo" style="text-decoration: none; color: inherit;">
@@ -28,8 +28,8 @@
             </div>
             <nav>
                 <ul class="nav">
-                    <li><a href="#Job">Find Jobs</a></li>
-                    <li><a href="#companies">Companies</a></li>
+                    <li><a href="Find-job.html">Find Jobs</a></li>
+                    <li><a href="companies.html">Companies</a></li>
                     <li><a href="career-advice.html">Career Advice</a></li>
                     <li><a href="about-us.html">About</a></li>
                 </ul>
@@ -45,8 +45,8 @@
     <div id="mobileSidebar" class="mobile-sidebar">
         <button class="close-sidebar" onclick="toggleMobileSidebar()">&times;</button>
         <ul class="mobile-nav">
-            <li><a href="#jobs" onclick="toggleMobileSidebar()"><i class="fas fa-search"></i>Find Jobs</a></li>
-            <li><a href="#companies" onclick="toggleMobileSidebar()"><i class="fas fa-building"></i>Companies</a></li>
+            <li><a href="Find-job.html" onclick="toggleMobileSidebar()"><i class="fas fa-search"></i>Find Jobs</a></li>
+            <li><a href="companies.html" onclick="toggleMobileSidebar()"><i class="fas fa-building"></i>Companies</a></li>
             <li><a href="career-advice.html" onclick="toggleMobileSidebar()"><i class="fas fa-lightbulb"></i>Career Advice</a></li>
             <li><a href="about-us.html" onclick="toggleMobileSidebar()"><i class="fas fa-info-circle"></i>About</a></li>
         </ul>
@@ -403,153 +403,7 @@
     <div id="toastContainer"
         style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Accordion functionality
-            const accordionHeaders = document.querySelectorAll('.career-advice-accordion-header');
-            
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    const accordionItem = this.parentElement;
-                    const accordionContent = this.nextElementSibling;
-                    
-                    // Close all other accordion items
-                    document.querySelectorAll('.career-advice-accordion-item').forEach(item => {
-                        if (item !== accordionItem) {
-                            item.classList.remove('active');
-                            item.querySelector('.career-advice-accordion-content').style.maxHeight = null;
-                        }
-                    });
-                    
-                    // Toggle current item
-                    accordionItem.classList.toggle('active');
-                    
-                    if (accordionItem.classList.contains('active')) {
-                        accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-                    } else {
-                        accordionContent.style.maxHeight = null;
-                    }
-                });
-            });
-            
-            // Story slider functionality
-            const storyCards = document.querySelectorAll('.career-advice-story-card');
-            const dots = document.querySelectorAll('.career-advice-slider-dot');
-            const prevBtn = document.querySelector('.career-advice-slider-btn.prev');
-            const nextBtn = document.querySelector('.career-advice-slider-btn.next');
-            let currentSlide = 0;
-            let slideInterval;
-            
-            function showSlide(index) {
-                // Hide all slides
-                storyCards.forEach(card => card.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                // Show selected slide
-                storyCards[index].classList.add('active');
-                dots[index].classList.add('active');
-                currentSlide = index;
-            }
-            
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % storyCards.length;
-                showSlide(currentSlide);
-            }
-            
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + storyCards.length) % storyCards.length;
-                showSlide(currentSlide);
-            }
-            
-            // Add click events to dots
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    clearInterval(slideInterval);
-                    showSlide(index);
-                    startSliderInterval();
-                });
-            });
-            
-            // Add click events to navigation buttons
-            nextBtn.addEventListener('click', () => {
-                clearInterval(slideInterval);
-                nextSlide();
-                startSliderInterval();
-            });
-            
-            prevBtn.addEventListener('click', () => {
-                clearInterval(slideInterval);
-                prevSlide();
-                startSliderInterval();
-            });
-            
-            function startSliderInterval() {
-                slideInterval = setInterval(nextSlide, 5000);
-            }
-            
-            // Start the slider
-            startSliderInterval();
-            
-            // Animate elements on scroll
-            const animatedElements = document.querySelectorAll('.career-advice-tip-card, .career-advice-accordion-item, .career-advice-section-title');
-            
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            
-            animatedElements.forEach(element => observer.observe(element));
-            
-            // Handle mobile menu
-            const mobileMenuBtn = document.querySelector('.career-advice-mobile-menu-btn');
-            const mainNav = document.querySelector('.main-nav');
-            
-            if (mobileMenuBtn && mainNav) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-                    this.classList.toggle('active');
-                });
-            }
-            
-            // Handle window resize for responsive adjustments
-            function handleResize() {
-                // Adjust story slider height based on content
-                const activeStory = document.querySelector('.career-advice-story-card.active');
-                if (activeStory) {
-                    const storiesSlider = document.querySelector('.career-advice-stories-slider');
-                    storiesSlider.style.height = activeStory.scrollHeight + 'px';
-                }
-                
-                // Close mobile menu if open on resize
-                if (window.innerWidth > 768 && mainNav && mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
-                    if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
-                }
-            }
-            
-            // Initial resize handling
-            handleResize();
-            
-            // Listen for resize events
-            window.addEventListener('resize', handleResize);
-            
-            // Adjust accordion content heights when opened
-            document.querySelectorAll('.career-advice-accordion-item.active').forEach(item => {
-                const content = item.querySelector('.career-advice-accordion-content');
-                content.style.maxHeight = content.scrollHeight + 'px';
-            });
-        });
-    </script>
+   
     <script src="assets/js/script.js"></script>
 </body>
 
