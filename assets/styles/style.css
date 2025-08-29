@@ -3807,7 +3807,7 @@ body {
             margin-bottom: 50px;
             position: relative;
             max-width: 800px;
-            margin: 50px auto 50px;
+            margin: 150px auto 50px;
         }
 
         .find-job-progress-bar::before {
@@ -3913,6 +3913,7 @@ body {
 
         /* Success Message */
         .find-job-success-message {
+          margin-bottom: 120px;
             display: none;
             text-align: center;
             padding: 40px;
