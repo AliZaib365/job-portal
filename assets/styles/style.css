@@ -4020,6 +4020,10 @@ body {
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+          .find-job-progress-bar-progress{
+            display: none;
+          }
+
             .find-job-application-form {
                 padding: 30px 20px;
                 margin: -20px auto 60px;

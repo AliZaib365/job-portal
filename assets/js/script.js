@@ -423,7 +423,6 @@ function initApplicationForm() {
     if (returnHomeBtn) {
         returnHomeBtn.addEventListener('click', function() {
             // In a real application, redirect to home page
-            alert('Returning to home page...');
         });
     }
     
