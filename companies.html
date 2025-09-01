@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITLY FIND - Right Fit, Right Here!</title>
+    <meta name="description"
+        content="Connect with top employers and find your perfect job opportunity. Search thousands of jobs and take the next step in your career.">
+    <meta name="author" content="FITLY FIND Platform">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="/" class="logo" style="text-decoration: none; color: inherit;">
+                    <img src="assets/images/filthyfind.jpg" alt="FITLY FIND Logo" class="logo-img" />
+                    <span class="logo-text">
+                      <span class="logo-title">
+                        FITLY <span style="color: #454f5e;">FIND</span>
+                        <p style="font-size: 10px; margin: 0;">Right Fit, <span style="color: #3d4654;">Right Here!</span></p>
+                      </span>
+                    </span>
+                  </a>
+                  
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="Find-job.html">Find Jobs</a></li>
+                    <li><a href="companies.html">Companies</a></li>
+                    <li><a href="career-advice.html">Career Advice</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" onclick="toggleMobileSidebar()">☰</button>
+            <div class="header-buttons">
+                <button class="btn btn-primary d" onclick="openEnrollForm()">Get Started</button>
+                <button class="btn btn-success d" onclick="openEnrollForm()">Enroll Now</button>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobileSidebar" class="mobile-sidebar">
+        <button class="close-sidebar" onclick="toggleMobileSidebar()">&times;</button>
+        <ul class="mobile-nav">
+            <li><a href="Find-job.html" onclick="toggleMobileSidebar()"><i class="fas fa-search"></i>Find Jobs</a></li>
+            <li><a href="companies.html" onclick="toggleMobileSidebar()"><i class="fas fa-building"></i>Companies</a></li>
+            <li><a href="career-advice.html" onclick="toggleMobileSidebar()"><i class="fas fa-lightbulb"></i>Career Advice</a></li>
+            <li><a href="about-us.html" onclick="toggleMobileSidebar()"><i class="fas fa-info-circle"></i>About</a></li>
+        </ul>
+        <div class="mobile-buttons">
+            <button class="btn btn-primary" onclick="openEnrollForm(); toggleMobileSidebar()">Get Started</button>
+            <button class="btn btn-success" onclick="openEnrollForm(); toggleMobileSidebar()">Enroll Now</button>
+        </div>
+    </div>
+        <!-- Header Section -->
+    <section class="company-header">
+        <div class="company-container">
+            <h1>Company Portal</h1>
+            <p>Manage your company profile, post job opportunities, and find the perfect candidates</p>
+            <div class="company-tab-container">
+                <div class="company-tab company-active" data-tab="profile">Company Profile</div>
+                <div class="company-tab" data-tab="jobs">Job Postings</div>
+                <div class="company-tab" data-tab="saved">Saved Jobs</div>
+                <div class="company-tab" data-tab="post-job">Post a Job</div>
+            </div>
+        </div>
+    </section>
+    <!-- Company Profile Section -->
+    <section class="company-profile company-section-enter" id="profile-section">
+        <div class="company-container">
+            <div class="company-profile-card">
+                <div class="company-profile-logo">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="company-profile-info">
+                    <h2 id="company-profile-name">TechVision Inc.
+                        <button class="company-profile-edit-btn" id="company-profile-edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                    </h2>
+                    <p id="company-profile-tagline">Technology &amp; Software Development - Building the future through innovative solutions</p>
+                    <div class="company-profile-stats">
+                        <div class="company-profile-stat">
+                            <div class="company-profile-stat-number" id="company-profile-employees">154</div>
+                            <div class="company-profile-stat-label">Employees</div>
+                        </div>
+                        <div class="company-profile-stat">
+                            <div class="company-profile-stat-number" id="company-profile-open-positions">8</div>
+                            <div class="company-profile-stat-label">Open Positions</div>
+                        </div>
+                        <div class="company-profile-stat">
+                            <div class="company-profile-stat-number" id="company-profile-jobs-posted">32</div>
+                            <div class="company-profile-stat-label">Jobs Posted</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="company-section-title">
+                <h2>Our Mission</h2>
+                <p>What drives us to innovate and excel</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; line-height: 1.8; text-align: center; color: #6b7280;" id="company-profile-mission">
+                    At TechVision, we believe in the power of technology to transform businesses and improve lives.
+                    Our mission is to create innovative software solutions that empower organizations to reach their
+                    full potential. We value creativity, collaboration, and a commitment to excellence in everything we do.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Edit Profile Modal -->
+    <div class="company-edit-modal" id="company-edit-modal">
+        <div class="company-edit-modal-content">
+            <span class="company-edit-close" id="company-edit-close">&times;</span>
+            <h2 style="margin-bottom:16px;">Edit Company Profile</h2>
+            <label for="edit-name">Company Name</label>
+            <input type="text" id="edit-name">
+            <label for="edit-tagline">Tagline</label>
+            <input type="text" id="edit-tagline">
+            <label for="edit-employees">Employees</label>
+            <input type="number" id="edit-employees" min="1">
+            <label for="edit-open-positions">Open Positions</label>
+            <input type="number" id="edit-open-positions" min="0">
+            <label for="edit-jobs-posted">Jobs Posted</label>
+            <input type="number" id="edit-jobs-posted" min="0">
+            <label for="edit-mission">Mission Statement</label>
+            <textarea id="edit-mission" rows="3"></textarea>
+            <button class="company-edit-save" id="company-edit-save">Save</button>
+        </div>
+    </div>
+    <!-- Jobs Section -->
+    <section class="company-jobs-section company-section-enter" id="jobs-section" style="display: none;">
+        <div class="company-container">
+            <div class="company-section-title">
+                <h2>Current Job Openings</h2>
+                <p>Join our team and help shape the future of technology</p>
+            </div>
+            <div class="company-search-bar">
+                <input type="text" id="company-search-input" class="company-search-input" placeholder="Search job title, location, or type...">
+                <button id="company-search-btn" class="company-search-btn"><i class="fas fa-search"></i> Search</button>
+                <button id="company-clear-search-btn" class="company-search-btn" style="background:#e5e7eb;color:#1f2937;"><i class="fas fa-times"></i> Clear</button>
+            </div>
+            <div class="company-jobs-grid" id="jobs-container"></div>
+        </div>
+    </section>
+    <!-- Saved Jobs Section -->
+    <section class="company-saved-jobs-section company-section-enter" id="saved-section" style="display: none;">
+        <div class="company-container">
+            <div class="company-section-title">
+                <h2>Saved Jobs</h2>
+                <p>Your bookmarked jobs for later review</p>
+            </div>
+            <div class="company-jobs-grid" id="saved-jobs-container"></div>
+            <div class="company-empty-saved" id="company-empty-saved" style="display:none;">No jobs saved yet.</div>
+        </div>
+    </section>
+    <!-- Job Post Form Section -->
+    <section class="company-job-post-section company-section-enter" id="job-post-section" style="display: none;">
+        <div class="company-container">
+            <div class="company-job-form-container">
+                <div class="company-success-message" id="success-message">
+                    <p><i class="fas fa-check-circle"></i> Your job has been posted successfully! It will appear in your job listings.</p>
+                </div>
+                <div class="company-form-title">
+                    <h2>Post a Job Opportunity</h2>
+                    <p>Reach qualified candidates by listing your job on our platform</p>
+                </div>
+                <form id="jobPostForm">
+                    <!-- Job Details -->
+                    <div class="company-form-section">
+                        <div class="company-form-section-title">
+                            <div class="company-form-section-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Job Details</h3>
+                        </div>
+                        <div class="company-form-grid">
+                            <div class="company-form-group">
+                                <label for="jobTitle">Job Title *</label>
+                                <input type="text" id="jobTitle" class="company-form-control" placeholder="e.g. Senior Software Engineer" required>
+                            </div>
+                            <div class="company-form-group">
+                                <label for="jobType">Job Type *</label>
+                                <select id="jobType" class="company-form-control" required>
+                                    <option value="">Select Job Type</option>
+                                    <option value="fulltime">Full-Time</option>
+                                    <option value="parttime">Part-Time</option>
+                                    <option value="contract">Contract</option>
+                                    <option value="freelance">Freelance</option>
+                                    <option value="internship">Internship</option>
+                                    <option value="remote">Remote</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="company-form-grid">
+                            <div class="company-form-group">
+                                <label for="jobLocation">Location *</label>
+                                <input type="text" id="jobLocation" class="company-form-control" placeholder="e.g. New York, NY or Remote" required>
+                            </div>
+                            <div class="company-form-group">
+                                <label for="salaryRange">Salary Range</label>
+                                <input type="text" id="salaryRange" class="company-form-control" placeholder="e.g. $80,000 - $100,000">
+                            </div>
+                        </div>
+                        <div class="company-form-group">
+                            <label for="jobDescription">Job Description *</label>
+                            <textarea id="jobDescription" class="company-form-control" placeholder="Describe the role, responsibilities, and requirements..." required></textarea>
+                        </div>
+                        <div class="company-form-group">
+                            <label for="jobRequirements">Requirements & Qualifications *</label>
+                            <textarea id="jobRequirements" class="company-form-control" placeholder="List the required skills, experience, and qualifications..." required></textarea>
+                        </div>
+                    </div>
+                    <!-- Application Process -->
+                    <div class="company-form-section">
+                        <div class="company-form-section-title">
+                            <div class="company-form-section-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <h3>Application Process</h3>
+                        </div>
+                        <div class="company-form-group">
+                            <label for="applicationInstructions">Application Instructions *</label>
+                            <textarea id="applicationInstructions" class="company-form-control" placeholder="How should candidates apply? (e.g. email resume, apply through website)" required></textarea>
+                        </div>
+                        <div class="company-form-grid">
+                            <div class="company-form-group">
+                                <label for="contactEmail">Contact Email *</label>
+                                <input type="email" id="contactEmail" class="company-form-control" placeholder="hr@example.com" required>
+                            </div>
+                            <div class="company-form-group">
+                                <label for="applicationDeadline">Application Deadline</label>
+                                <input type="date" id="applicationDeadline" class="company-form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="company-btn company-btn-primary company-btn-block">Post Job</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Job Details Modal -->
+    <div class="company-modal" id="job-modal">
+        <div class="company-modal-content">
+            <span class="company-close-modal" id="close-modal">&times;</span>
+            <div class="company-modal-header">
+                <span class="company-modal-job-type fulltime" id="modal-job-type">Full-Time</span>
+                <h2 id="modal-job-title">Senior Software Engineer</h2>
+                <div class="company-modal-job-details">
+                    <div class="company-modal-job-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="modal-job-location">San Francisco, CA</span>
+                    </div>
+                    <div class="company-modal-job-detail">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span id="modal-job-salary">$120,000 - $150,000</span>
+                    </div>
+                    <div class="company-modal-job-detail">
+                        <i class="fas fa-clock"></i>
+                        <span id="modal-job-posted">Posted 2 days ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="company-modal-section">
+                <h3><i class="fas fa-file-alt"></i> Job Description</h3>
+                <p id="modal-job-description"></p>
+            </div>
+            <div class="company-modal-section">
+                <h3><i class="fas fa-list-check"></i> Requirements</h3>
+                <ul id="modal-job-requirements"></ul>
+            </div>
+            <div class="company-modal-section">
+                <h3><i class="fas fa-envelope"></i> How to Apply</h3>
+                <p id="modal-job-application"></p>
+                <p>Contact: <span id="modal-job-contact"></span></p>
+                <p>Application Deadline: <span id="modal-job-deadline">Open until filled</span></p>
+            </div>
+            <a href="#" class="company-apply-btn">Apply Now</a>
+        </div>
+    </div>
+     <section class="section newsletter" id="newsletter">
+        <div class="container">
+            <h2 class="animate slide-down">Get Career Tips & Job Alerts</h2>
+            <p class="animate slide-down delay-1">Stay ahead of the competition with our weekly newsletter</p>
+            <form class="newsletter-form animate zoom-in delay-2">
+                <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section animate slide-up delay-1">
+                    <h3>For Job Seekers</h3>
+                    <ul>
+                        <li><a href="#">Browse Jobs</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-2">
+                    <h3>For Employers</h3>
+                    <ul>
+                        <li><a href="#">Post Jobs</a></li>
+                        <li><a href="#">Search Resumes</a></li>
+                        <li><a href="#">Hiring Solutions</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-3">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section animate slide-up delay-4">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                      </div>
+                      
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo animate fade-in delay-5">
+                    <img src="assets/images/filthyfind.jpg" alt="FITLY FIND Logo" class="logo-img" />
+                    <div>
+                        <span class="logo-title">FITLY FIND</span><br>
+                        <span class="logo-tagline">Right Fit, Right Here!</span>
+                    </div>
+                </div>
+                <div class="copyright animate fade-in delay-6">
+                    © Developed by Alphagon Digital. All rights reserved.
+                    <div class="terms-line">
+                        <a href="terms-Condition.html">Terms and Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="enrollModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Company Enrollment</h2>
+                <button class="close-btn" onclick="closeEnrollForm()">&times;</button>
+            </div>
+            <form id="enrollForm" onsubmit="submitEnrollForm(event)">
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-cancel" onclick="closeEnrollForm()">Cancel</button>
+                    <button type="submit" class="btn btn-submit">Submit Enrollment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Feedback Button -->
+    <div class="feedback-button" id="feedbackButton">
+        <i class="fas fa-comment-alt"> 
+        </i>
+
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="feedback-modal" id="feedbackModal">
+        <h3>Send us your feedback</h3>
+        <form class="feedback-form" id="feedbackForm">
+            <div class="form-group">
+                <label for="feedbackName">Your Name</label>
+                <input type="text" id="feedbackName" required>
+            </div>
+            <div class="form-group">
+                <label for="feedbackEmail">Email</label>
+                <input type="email" id="feedbackEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="feedbackMessage">Message</label>
+                <textarea id="feedbackMessage" required></textarea>
+            </div>
+            <div class="form-group file-upload">
+                <input type="file" id="feedbackFile" style="display: none;">
+                <label for="feedbackFile" class="file-upload-label">
+                    <i class="fas fa-paperclip"></i> Attach File
+                </label>
+                <div class="file-name" id="fileName"></div>
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="btn-cancel" id="cancelFeedback">Cancel</button>
+                <button type="submit" class="btn-submit">Send Feedback</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="feedbackOverlay"></div>
+    <div id="toastContainer"
+        style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
+    </div>
+</body>
+<script src="assets/js/script.js"></script>
+
+</html>

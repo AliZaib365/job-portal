@@ -901,3 +901,379 @@ function toggleMobileSidebar() {
         sidebar.classList.toggle('show');
     }
 }
+  document.addEventListener('DOMContentLoaded', function() {
+            // ----- Elements -----
+            const tabs = document.querySelectorAll('.company-tab');
+            const profileSection = document.getElementById('profile-section');
+            const jobsSection = document.getElementById('jobs-section');
+            const savedSection = document.getElementById('saved-section');
+            const jobPostSection = document.getElementById('job-post-section');
+            const jobPostForm = document.getElementById('jobPostForm');
+            const successMessage = document.getElementById('success-message');
+            const jobsContainer = document.getElementById('jobs-container');
+            const savedJobsContainer = document.getElementById('saved-jobs-container');
+            const companyEmptySaved = document.getElementById('company-empty-saved');
+            const jobModal = document.getElementById('job-modal');
+            const closeModal = document.getElementById('close-modal');
+            const companyProfileEditBtn = document.getElementById('company-profile-edit-btn');
+            const companyEditModal = document.getElementById('company-edit-modal');
+            const companyEditClose = document.getElementById('company-edit-close');
+            const companyEditSave = document.getElementById('company-edit-save');
+            // Search
+            const companySearchInput = document.getElementById('company-search-input');
+            const companySearchBtn = document.getElementById('company-search-btn');
+            const companyClearSearchBtn = document.getElementById('company-clear-search-btn');
+            // Profile fields
+            const companyProfileName = document.getElementById('company-profile-name');
+            const companyProfileTagline = document.getElementById('company-profile-tagline');
+            const companyProfileMission = document.getElementById('company-profile-mission');
+            const companyProfileEmployees = document.getElementById('company-profile-employees');
+            const companyProfileOpenPositions = document.getElementById('company-profile-open-positions');
+            const companyProfileJobsPosted = document.getElementById('company-profile-jobs-posted');
+
+            // ----- Storage -----
+            let jobs = [
+                {
+                    id: 1,
+                    title: "Senior Frontend Developer",
+                    type: "fulltime",
+                    location: "San Francisco, CA",
+                    salary: "$120,000 - $150,000",
+                    description: "We are looking for an experienced Frontend Developer to join our product team. You will be responsible for building the next generation of user interfaces for our SaaS platform.",
+                    requirements: ["5+ years experience with React", "Strong knowledge of JavaScript/TypeScript", "Experience with state management libraries", "Familiarity with RESTful APIs", "Experience with testing frameworks"],
+                    application: "Send your resume and portfolio to careers@techvision.com",
+                    contact: "careers@techvision.com",
+                    deadline: "2023-12-15",
+                    posted: "2 days ago"
+                },
+                {
+                    id: 2,
+                    title: "DevOps Engineer",
+                    type: "fulltime",
+                    location: "Remote",
+                    salary: "$110,000 - $140,000",
+                    description: "Join our infrastructure team to build and maintain our cloud infrastructure. You'll work with cutting-edge technologies to ensure our systems are scalable and reliable.",
+                    requirements: ["3+ years experience with AWS", "Knowledge of containerization (Docker, Kubernetes)", "Experience with CI/CD pipelines", "Infrastructure as Code (Terraform, CloudFormation)", "Scripting skills (Bash, Python)"],
+                    application: "Apply through our website with your resume and cover letter",
+                    contact: "devops-hiring@techvision.com",
+                    deadline: "2023-12-20",
+                    posted: "5 days ago"
+                },
+                {
+                    id: 3,
+                    title: "UX/UI Designer",
+                    type: "contract",
+                    location: "New York, NY",
+                    salary: "$70 - $90 per hour",
+                    description: "We're seeking a talented UX/UI Designer to help create intuitive and beautiful user experiences for our enterprise clients.",
+                    requirements: ["Portfolio demonstrating UX/UI work", "Proficiency in Figma", "Experience with user research methods", "Knowledge of accessibility standards", "Understanding of responsive design"],
+                    application: "Email your portfolio and resume to design@techvision.com",
+                    contact: "design@techvision.com",
+                    deadline: "2023-12-10",
+                    posted: "1 week ago"
+                }
+            ];
+            let savedJobs = JSON.parse(localStorage.getItem('companySavedJobs') || '[]');
+            let profileData = JSON.parse(localStorage.getItem('companyProfileData') || '{}');
+
+            // ----- Profile: Load from storage -----
+            function loadProfile() {
+                companyProfileName.childNodes[0].nodeValue = profileData.name || "TechVision Inc.";
+                companyProfileTagline.textContent = profileData.tagline || "Technology & Software Development - Building the future through innovative solutions";
+                companyProfileMission.textContent = profileData.mission || "At TechVision, we believe in the power of technology to transform businesses and improve lives. Our mission is to create innovative software solutions that empower organizations to reach their full potential. We value creativity, collaboration, and a commitment to excellence in everything we do.";
+                companyProfileEmployees.textContent = profileData.employees || 154;
+                companyProfileOpenPositions.textContent = profileData.openPositions || 8;
+                companyProfileJobsPosted.textContent = profileData.jobsPosted || 32;
+            }
+            loadProfile();
+
+            // ----- Tabs -----
+            tabs.forEach((tab, i) => {
+                tab.style.opacity = 0;
+                setTimeout(() => {
+                    tab.style.transition = 'opacity .7s cubic-bezier(.42,1.14,.76,1.06)';
+                    tab.style.opacity = 1;
+                }, 180 * i + 400);
+            });
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('company-active'));
+                    this.classList.add('company-active');
+                    [profileSection, jobsSection, jobPostSection, savedSection].forEach(sec => sec.classList.remove('company-section-enter'));
+                    profileSection.style.display = 'none';
+                    jobsSection.style.display = 'none';
+                    jobPostSection.style.display = 'none';
+                    savedSection.style.display = 'none';
+                    if (this.dataset.tab === 'profile') {
+                        profileSection.style.display = 'block';
+                        profileSection.classList.add('company-section-enter');
+                    } else if (this.dataset.tab === 'jobs') {
+                        jobsSection.style.display = 'block';
+                        jobsSection.classList.add('company-section-enter');
+                    } else if (this.dataset.tab === 'saved') {
+                        savedSection.style.display = 'block';
+                        savedSection.classList.add('company-section-enter');
+                        renderSavedJobs();
+                    } else {
+                        jobPostSection.style.display = 'block';
+                        jobPostSection.classList.add('company-section-enter');
+                    }
+                });
+            });
+
+            // ----- Search/Filter -----
+            let jobSearchValue = '';
+            companySearchBtn.addEventListener('click', function() {
+                jobSearchValue = companySearchInput.value.trim();
+                renderJobs();
+            });
+            companyClearSearchBtn.addEventListener('click', function() {
+                jobSearchValue = '';
+                companySearchInput.value = '';
+                renderJobs();
+            });
+            companySearchInput.addEventListener('keyup', function(e){
+                if(e.key === 'Enter'){
+                    jobSearchValue = companySearchInput.value.trim();
+                    renderJobs();
+                }
+            });
+
+            // ----- Job Posting -----
+            jobPostForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Validation
+                let errors = [];
+                if(!jobPostForm.jobTitle.value.trim()) errors.push("Job Title is required.");
+                if(!jobPostForm.jobType.value) errors.push("Job Type is required.");
+                if(!jobPostForm.jobLocation.value.trim()) errors.push("Location is required.");
+                if(!jobPostForm.jobDescription.value.trim()) errors.push("Description is required.");
+                if(!jobPostForm.jobRequirements.value.trim()) errors.push("Requirements are required.");
+                if(!jobPostForm.applicationInstructions.value.trim()) errors.push("Application Instructions are required.");
+                if(!jobPostForm.contactEmail.value.trim()) errors.push("Contact Email is required.");
+                if(errors.length) {
+                    alert(errors.join('\n'));
+                    return;
+                }
+                const newJob = {
+                    id: jobs.length + 1,
+                    title: jobPostForm.jobTitle.value,
+                    type: jobPostForm.jobType.value,
+                    location: jobPostForm.jobLocation.value,
+                    salary: jobPostForm.salaryRange.value,
+                    description: jobPostForm.jobDescription.value,
+                    requirements: jobPostForm.jobRequirements.value.split('\n').filter(item => item.trim() !== ''),
+                    application: jobPostForm.applicationInstructions.value,
+                    contact: jobPostForm.contactEmail.value,
+                    deadline: jobPostForm.applicationDeadline.value || 'Open until filled',
+                    posted: 'Just now'
+                };
+                jobs.unshift(newJob);
+                renderJobs();
+                successMessage.style.display = 'block';
+                successMessage.classList.add('company-section-enter');
+                jobPostForm.reset();
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                // Update jobs posted stat
+                let jobsPosted = parseInt(companyProfileJobsPosted.textContent) || 0;
+                companyProfileJobsPosted.textContent = jobsPosted + 1;
+                profileData.jobsPosted = jobsPosted + 1;
+                localStorage.setItem('companyProfileData', JSON.stringify(profileData));
+            });
+
+            // ----- Modal -----
+            closeModal.addEventListener('click', function() {
+                jobModal.classList.remove('company-section-enter');
+                jobModal.style.display = 'none';
+            });
+            window.addEventListener('click', function(e) {
+                if (e.target === jobModal) {
+                    jobModal.classList.remove('company-section-enter');
+                    jobModal.style.display = 'none';
+                }
+                if (e.target === companyEditModal) {
+                    companyEditModal.style.display = 'none';
+                }
+            });
+
+            // ----- Jobs Rendering -----
+            function renderJobs() {
+                jobsContainer.innerHTML = '';
+                let filtered = jobs;
+                if(jobSearchValue){
+                    filtered = jobs.filter(job =>
+                        job.title.toLowerCase().includes(jobSearchValue.toLowerCase()) ||
+                        job.location.toLowerCase().includes(jobSearchValue.toLowerCase()) ||
+                        getJobTypeLabel(job.type).toLowerCase().includes(jobSearchValue.toLowerCase())
+                    );
+                }
+                filtered.forEach((job, i) => {
+                    const jobCard = document.createElement('div');
+                    jobCard.className = 'company-job-card';
+                    jobCard.style.animationDelay = `${i * 0.1}s`;
+                    jobCard.innerHTML = `
+                        <button class="company-bookmark-btn ${isJobBookmarked(job.id) ? 'company-bookmarked' : ''}" title="Bookmark"><i class="fas fa-bookmark"></i></button>
+                        <span class="company-job-type ${job.type}">${getJobTypeLabel(job.type)}</span>
+                        <h3>${job.title}</h3>
+                        <div class="company-job-details">
+                            <div class="company-job-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${job.location}</span>
+                            </div>
+                            <div class="company-job-detail">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>${job.salary}</span>
+                            </div>
+                            <div class="company-job-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>${job.posted}</span>
+                            </div>
+                        </div>
+                        <p>${job.description}</p>
+                        <div class="company-job-salary">${job.salary}</div>
+                        <a href="#" class="company-view-job-btn" data-job-id="${job.id}">View Details</a>
+                    `;
+                    jobsContainer.appendChild(jobCard);
+
+                    // Bookmark logic
+                    jobCard.querySelector('.company-bookmark-btn').addEventListener('click', function(e){
+                        e.stopPropagation();
+                        toggleBookmark(job.id);
+                        renderJobs();
+                    });
+
+                    // View details
+                    jobCard.querySelector('.company-view-job-btn').addEventListener('click', function(e){
+                        e.preventDefault();
+                        showJobDetails(job);
+                    });
+                });
+            }
+            function getJobTypeLabel(type) {
+                const labels = {
+                    'fulltime': 'Full-Time',
+                    'parttime': 'Part-Time',
+                    'contract': 'Contract',
+                    'freelance': 'Freelance',
+                    'internship': 'Internship',
+                    'remote': 'Remote'
+                };
+                return labels[type] || type;
+            }
+
+            // ----- Saved Jobs -----
+            function isJobBookmarked(jobId){
+                return savedJobs.some(j => j.id === jobId);
+            }
+            function toggleBookmark(jobId){
+                const job = jobs.find(j => j.id === jobId);
+                if(isJobBookmarked(jobId)){
+                    savedJobs = savedJobs.filter(j => j.id !== jobId);
+                } else {
+                    savedJobs.push(job);
+                }
+                localStorage.setItem('companySavedJobs', JSON.stringify(savedJobs));
+                renderSavedJobs();
+            }
+            function renderSavedJobs(){
+                savedJobsContainer.innerHTML = '';
+                if(savedJobs.length === 0){
+                    companyEmptySaved.style.display = 'block';
+                } else {
+                    companyEmptySaved.style.display = 'none';
+                    savedJobs.forEach((job, i) => {
+                        const jobCard = document.createElement('div');
+                        jobCard.className = 'company-job-card';
+                        jobCard.style.animationDelay = `${i * 0.1}s`;
+                        jobCard.innerHTML = `
+                            <button class="company-bookmark-btn company-bookmarked" title="Remove Bookmark"><i class="fas fa-bookmark"></i></button>
+                            <span class="company-job-type ${job.type}">${getJobTypeLabel(job.type)}</span>
+                            <h3>${job.title}</h3>
+                            <div class="company-job-details">
+                                <div class="company-job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>${job.location}</span>
+                                </div>
+                                <div class="company-job-detail">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>${job.salary}</span>
+                                </div>
+                                <div class="company-job-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>${job.posted}</span>
+                                </div>
+                            </div>
+                            <p>${job.description}</p>
+                            <div class="company-job-salary">${job.salary}</div>
+                            <a href="#" class="company-view-job-btn" data-job-id="${job.id}">View Details</a>
+                        `;
+                        savedJobsContainer.appendChild(jobCard);
+
+                        jobCard.querySelector('.company-bookmark-btn').addEventListener('click', function(e){
+                            e.stopPropagation();
+                            toggleBookmark(job.id);
+                            renderSavedJobs();
+                        });
+                        jobCard.querySelector('.company-view-job-btn').addEventListener('click', function(e){
+                            e.preventDefault();
+                            showJobDetails(job);
+                        });
+                    });
+                }
+            }
+
+            // ----- Job Details Modal -----
+            function showJobDetails(job) {
+                document.getElementById('modal-job-type').className = `company-modal-job-type ${job.type}`;
+                document.getElementById('modal-job-type').textContent = getJobTypeLabel(job.type);
+                document.getElementById('modal-job-title').textContent = job.title;
+                document.getElementById('modal-job-location').textContent = job.location;
+                document.getElementById('modal-job-salary').textContent = job.salary;
+                document.getElementById('modal-job-posted').textContent = `Posted ${job.posted}`;
+                document.getElementById('modal-job-description').textContent = job.description;
+                const requirementsList = document.getElementById('modal-job-requirements');
+                requirementsList.innerHTML = '';
+                job.requirements.forEach(req => {
+                    const li = document.createElement('li');
+                    li.textContent = req;
+                    requirementsList.appendChild(li);
+                });
+                document.getElementById('modal-job-application').textContent = job.application;
+                document.getElementById('modal-job-contact').textContent = job.contact;
+                document.getElementById('modal-job-deadline').textContent = job.deadline;
+                jobModal.classList.add('company-section-enter');
+                jobModal.style.display = 'block';
+            }
+
+            // ----- Company Profile Edit Modal -----
+            companyProfileEditBtn.addEventListener('click', function(){
+                document.getElementById('edit-name').value = companyProfileName.childNodes[0].nodeValue.trim();
+                document.getElementById('edit-tagline').value = companyProfileTagline.textContent.trim();
+                document.getElementById('edit-employees').value = companyProfileEmployees.textContent.trim();
+                document.getElementById('edit-open-positions').value = companyProfileOpenPositions.textContent.trim();
+                document.getElementById('edit-jobs-posted').value = companyProfileJobsPosted.textContent.trim();
+                document.getElementById('edit-mission').value = companyProfileMission.textContent.trim();
+                companyEditModal.style.display = 'block';
+            });
+            companyEditClose.addEventListener('click', function(){
+                companyEditModal.style.display = 'none';
+            });
+            companyEditSave.addEventListener('click', function(){
+                profileData = {
+                    name: document.getElementById('edit-name').value.trim(),
+                    tagline: document.getElementById('edit-tagline').value.trim(),
+                    employees: document.getElementById('edit-employees').value.trim(),
+                    openPositions: document.getElementById('edit-open-positions').value.trim(),
+                    jobsPosted: document.getElementById('edit-jobs-posted').value.trim(),
+                    mission: document.getElementById('edit-mission').value.trim()
+                };
+                localStorage.setItem('companyProfileData', JSON.stringify(profileData));
+                loadProfile();
+                companyEditModal.style.display = 'none';
+            });
+
+            // ----- Initial Jobs Display -----
+            renderJobs();
+        });
