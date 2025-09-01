@@ -1277,3 +1277,211 @@ function toggleMobileSidebar() {
             // ----- Initial Jobs Display -----
             renderJobs();
         });
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('company-contact-form');
+            const successMessage = document.getElementById('company-contact-success');
+            const errorMessage = document.getElementById('company-contact-error');
+            const submitButton = document.getElementById('submit-button');
+            const buttonText = document.getElementById('button-text');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const infoToggle = document.getElementById('info-toggle');
+            const additionalInfo = document.getElementById('additional-info');
+            const subjectInput = document.getElementById('contact-subject');
+            const messageInput = document.getElementById('contact-message');
+            const subjectCount = document.getElementById('subject-count');
+            const messageCount = document.getElementById('message-count');
+            const contactMethods = document.querySelectorAll('.contact-method-btn');
+            
+            // Initialize character counters
+            updateCharacterCount(subjectInput, subjectCount);
+            updateCharacterCount(messageInput, messageCount);
+            
+            // Add event listeners for character counting
+            subjectInput.addEventListener('input', () => updateCharacterCount(subjectInput, subjectCount));
+            messageInput.addEventListener('input', () => updateCharacterCount(messageInput, messageCount));
+            
+            // Toggle additional info section
+            infoToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                additionalInfo.classList.toggle('expanded');
+            });
+            
+            // Contact method selection
+            contactMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    contactMethods.forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Input focus effects
+            const inputs = document.querySelectorAll('.company-contact-form-control');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (this.value === '') {
+                        this.parentElement.classList.remove('focused');
+                    }
+                    validateField(this);
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', async function(e){
+                e.preventDefault();
+                
+                // Reset messages
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                
+                // Validate all fields
+                let valid = true;
+                const requiredFields = ['contact-name','contact-email','contact-subject','contact-message'];
+                
+                requiredFields.forEach(id => {
+                    const field = document.getElementById(id);
+                    if (!validateField(field)) {
+                        valid = false;
+                    }
+                });
+                
+                if(!valid) {
+                    errorMessage.style.display = 'flex';
+                    // Shake animation for error
+                    form.style.animation = 'none';
+                    setTimeout(() => {
+                        form.style.animation = 'company-shake 0.5s';
+                    }, 10);
+                    return;
+                }
+                
+                // Show loading state
+                submitButton.disabled = true;
+                loadingSpinner.style.display = 'block';
+                buttonText.textContent = 'Sending...';
+                
+                try {
+                    // Simulate API call
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    // Show success message with animation
+                    successMessage.style.display = 'flex';
+                    successMessage.style.animation = 'company-fadeIn 0.7s';
+                    
+                    // Add confetti effect on success
+                    createConfetti();
+                    
+                    // Reset form
+                    form.reset();
+                    updateCharacterCount(subjectInput, subjectCount);
+                    updateCharacterCount(messageInput, messageCount);
+                    
+                    // Reset button state
+                    setTimeout(() => {
+                        submitButton.disabled = false;
+                        loadingSpinner.style.display = 'none';
+                        buttonText.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    }, 1000);
+                    
+                    // Hide success message after delay
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } catch (error) {
+                    // Show error message
+                    errorMessage.textContent = 'There was an error sending your message. Please try again.';
+                    errorMessage.style.display = 'flex';
+                    
+                    // Reset button state
+                    submitButton.disabled = false;
+                    loadingSpinner.style.display = 'none';
+                    buttonText.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                }
+            });
+            
+            // Field validation function
+            function validateField(field) {
+                const parent = field.parentElement;
+                let isValid = true;
+                
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    parent.classList.add('error');
+                    isValid = false;
+                } else if (field.type === 'email' && field.value.trim()) {
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(field.value.trim())) {
+                        parent.classList.add('error');
+                        isValid = false;
+                    } else {
+                        parent.classList.remove('error');
+                    }
+                } else {
+                    parent.classList.remove('error');
+                }
+                
+                return isValid;
+            }
+            
+            // Character counter function
+            function updateCharacterCount(input, counterElement) {
+                const count = input.value.length;
+                const maxLength = input.getAttribute('maxlength');
+                
+                counterElement.textContent = count;
+                
+                // Add warning classes based on character count
+                if (count > maxLength * 0.9) {
+                    counterElement.classList.add('error');
+                } else if (count > maxLength * 0.75) {
+                    counterElement.classList.add('warning');
+                } else {
+                    counterElement.classList.remove('warning', 'error');
+                }
+            }
+            
+            // Simple confetti effect
+            function createConfetti() {
+                const confettiContainer = document.querySelector('.company-contact-card');
+                const confettiCount = 50;
+                const colors = ['#3b82f6', '#8b5cf6', '#f59e0b', '#10b981', '#ef4444'];
+                
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.width = Math.floor(Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = Math.floor(Math.random() * 10 + 5) + 'px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.position = 'absolute';
+                    confetti.style.top = '50%';
+                    confetti.style.left = '50%';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.opacity = '0';
+                    
+                    confettiContainer.appendChild(confetti);
+                    
+                    const animationDuration = Math.random() * 2 + 1;
+                    
+                    confetti.animate([
+                        { 
+                            transform: 'translate(0, 0) rotate(0)',
+                            opacity: 1
+                        },
+                        { 
+                            transform: `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg)`,
+                            opacity: 0
+                        }
+                    ], {
+                        duration: animationDuration * 1000,
+                        easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)',
+                        fill: 'forwards'
+                    });
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, animationDuration * 1000);
+                }
+            }
+        });

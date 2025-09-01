@@ -12,25 +12,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
 <body>
-   <header class="header">
+    <header class="header">
         <div class="container">
             <div class="logo">
                 <a href="/" class="logo" style="text-decoration: none; color: inherit;">
                     <img src="assets/images/filthyfind.jpg" alt="FITLY FIND Logo" class="logo-img" />
                     <span class="logo-text">
-                      <span class="logo-title">
-                        FITLY <span style="color: #454f5e;">FIND</span>
-                        <p style="font-size: 10px; margin: 0;">Right Fit, <span style="color: #3d4654;">Right Here!</span></p>
-                      </span>
+                        <span class="logo-title">
+                            FITLY <span style="color: #454f5e;">FIND</span>
+                            <p style="font-size: 10px; margin: 0;">Right Fit, <span style="color: #3d4654;">Right
+                                    Here!</span></p>
+                        </span>
                     </span>
-                  </a>
-                  
+                </a>
+
             </div>
             <nav>
                 <ul class="nav">
@@ -53,206 +61,124 @@
         <button class="close-sidebar" onclick="toggleMobileSidebar()">&times;</button>
         <ul class="mobile-nav">
             <li><a href="Find-job.html" onclick="toggleMobileSidebar()"><i class="fas fa-search"></i>Find Jobs</a></li>
-            <li><a href="companies.html" onclick="toggleMobileSidebar()"><i class="fas fa-building"></i>Companies</a></li>
-            <li><a href="career-advice.html" onclick="toggleMobileSidebar()"><i class="fas fa-lightbulb"></i>Career Advice</a></li>
+            <li><a href="companies.html" onclick="toggleMobileSidebar()"><i class="fas fa-building"></i>Companies</a>
+            </li>
+            <li><a href="career-advice.html" onclick="toggleMobileSidebar()"><i class="fas fa-lightbulb"></i>Career
+                    Advice</a></li>
             <li><a href="about-us.html" onclick="toggleMobileSidebar()"><i class="fas fa-info-circle"></i>About</a></li>
-            <li><a href="contact-us.html" onclick="toggleMobileSidebar()"><i class="fas fa-info-circle"></i>Contact Us</a></li>
+            <li><a href="contact-us.html" onclick="toggleMobileSidebar()"><i class="fas fa-info-circle"></i>Contact
+                    Us</a></li>
         </ul>
         <div class="mobile-buttons">
             <button class="btn btn-primary" onclick="openEnrollForm(); toggleMobileSidebar()">Get Started</button>
             <button class="btn btn-success" onclick="openEnrollForm(); toggleMobileSidebar()">Enroll Now</button>
         </div>
     </div>
-    <section class="about-hero">
-    <div class="about-container">
-      <h1>Revolutionizing <span class="about-highlight">Job Matching</span> with Intelligent Technology</h1>
-      <p>At FITLY FIND, we're transforming how job seekers and employers connect through our innovative
-        algorithm-powered platform that works like a dating app for careers.</p>
-      <div class="about-mission-vision">
-        <div class="about-mission-card">
-          <i class="fas fa-bullseye"></i>
-          <h3>Our Mission</h3>
-          <p>To eliminate the frustration from job hunting by creating meaningful connections between talent and
-            opportunity through intelligent matching technology.</p>
-        </div>
-        <div class="about-vision-card">
-          <i class="fas fa-eye"></i>
-          <h3>Our Vision</h3>
-          <p>A world where everyone finds work they love and companies discover talent that truly fits their culture and
-            needs—creating perfect professional matches.</p>
-        </div>
-      </div>
+   
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
     </div>
-  </section>
+    <div class="company-contact-header">
+        <div class="company-container1">
+            <h1><i class="fas fa-envelope-open-text"></i> Contact Us</h1>
+            <p>We're here to help! Please fill out the form below to reach our team. We'll respond as soon as possible.
+            </p>
+        </div>
+    </div>
+    <div class="company-container1">
+        <div class="company-contact-card">
+            <div class="company-contact-success" id="company-contact-success">
+                <i class="fas fa-check-circle"></i> Thank you for contacting us! We have received your message and will
+                respond within 24 hours.
+            </div>
+            <div class="company-contact-error" id="company-contact-error">
+                <i class="fas fa-exclamation-circle"></i> Please fill all required fields correctly.
+            </div>
 
-  <!-- Algorithm Section -->
-  <section class="about-algorithm-section">
-    <div class="about-container">
-      <div class="about-section-title">
-        <h2 style="color: white;">How Our Matching Algorithm Works</h2>
-        <p>Intelligent technology that connects the right talent with the right opportunities</p>
-      </div>
-      <div class="about-algorithm-content">
-        <div class="about-algorithm-steps">
-          <div class="about-algorithm-step">
-            <div class="about-step-number">1</div>
-            <div class="about-step-content">
-              <h4>Job Seekers Upload Profiles</h4>
-              <p>Candidates create detailed profiles with skills, experience, and preferences, plus upload their CVs for
-                analysis.</p>
+            <div class="contact-methods">
+                <div class="contact-method-btn active" data-method="general">
+                    <i class="fas fa-question-circle"></i>
+                    <span>General Inquiry</span>
+                </div>
+                <div class="contact-method-btn" data-method="support">
+                    <i class="fas fa-headset"></i>
+                    <span>Support</span>
+                </div>
+                <div class="contact-method-btn" data-method="feedback">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Feedback</span>
+                </div>
             </div>
-          </div>
-          <div class="about-algorithm-step">
-            <div class="about-step-number">2</div>
-            <div class="about-step-content">
-              <h4>Employers Post Requirements</h4>
-              <p>Companies post detailed job descriptions specifying required skills, experience level, and cultural fit
-                needs.</p>
-            </div>
-          </div>
-          <div class="about-algorithm-step">
-            <div class="about-step-number">3</div>
-            <div class="about-step-content">
-              <h4>Intelligent Pattern Matching</h4>
-              <p>Our AI analyzes both sides for compatibility across multiple dimensions including skills, experience,
-                culture, and values.</p>
-            </div>
-          </div>
-          <div class="about-algorithm-step">
-            <div class="about-step-number">4</div>
-            <div class="about-step-content">
-              <h4>Instant Match Notifications</h4>
-              <p>When we find strong matches, both parties receive notifications with compatibility scores and match
-                details.</p>
-            </div>
-          </div>
-        </div>
-        <div class="about-algorithm-visual">
-          <div class="about-matching-animation">
-            <div class="about-job-seeker">
-              <i class="fas fa-user-graduate"></i>
-              <p>Job Seeker</p>
-            </div>
-            <div class="about-employer">
-              <i class="fas fa-building"></i>
-              <p>Employer</p>
-            </div>
-            <div class="about-match-line"></div>
-            <div class="about-match-percentage">92% Match</div>
-            <div class="about-sparkle" style="top: 30%; left: 40%;"></div>
-            <div class="about-sparkle" style="top: 60%; left: 50%;"></div>
-            <div class="about-sparkle" style="top: 40%; left: 60%;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Team Section -->
-  <section class="about-team-section">
-    <div class="about-container">
-      <div class="about-section-title">
-        <h2>Meet Our Team</h2>
-        <p>The passionate people behind our matching technology</p>
-      </div>
-      <div class="about-team-grid">
-        <div class="about-team-member">
-          <div class="about-member-img">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="about-member-info">
-            <h3>Sarah Johnson</h3>
-            <p>CEO & Founder</p>
-            <div class="about-member-social">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="about-team-member">
-          <div class="about-member-img">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="about-member-info">
-            <h3>Michael Chen</h3>
-            <p>Lead Data Scientist</p>
-            <div class="about-member-social">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="about-team-member">
-          <div class="about-member-img">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="about-member-info">
-            <h3>Emily Rodriguez</h3>
-            <p>Product Designer</p>
-            <div class="about-member-social">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-dribbble"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="about-team-member">
-          <div class="about-member-img">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="about-member-info">
-            <h3>David Kim</h3>
-            <p>Head of Partnerships</p>
-            <div class="about-member-social">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <form id="company-contact-form">
+                <div class="form-row">
+                    <div class="company-contact-form-group">
+                        <label class="company-contact-form-label" for="contact-name">Name *</label>
+                        <input type="text" id="contact-name" class="company-contact-form-control" required
+                            maxlength="50" placeholder="Your Full Name">
+                        <div class="input-error">Please enter your name</div>
+                    </div>
+                    <div class="company-contact-form-group">
+                        <label class="company-contact-form-label" for="contact-email">Email *</label>
+                        <input type="email" id="contact-email" class="company-contact-form-control" required
+                            maxlength="70" placeholder="your.email@example.com">
+                        <div class="input-error">Please enter a valid email address</div>
+                    </div>
+                </div>
 
-  <!-- Stats Section -->
-  <section class="about-stats-section">
-    <div class="about-container">
-      <div class="about-stats-grid">
-        <div class="about-stat-item">
-          <h3>50K</h3>
-          <p>Successful Matches</p>
-        </div>
-        <div class="about-stat-item">
-          <h3>200</h3>
-          <p>Partner Companies</p>
-        </div>
-        <div class="about-stat-item">
-          <h3>95</h3>
-          <p>Satisfaction Rate</p>
-        </div>
-        <div class="about-stat-item">
-          <h3>2M</h3>
-          <p>Profiles Analyzed</p>
-        </div>
-      </div>
-    </div>
-  </section>
+                <div class="company-contact-form-group">
+                    <label class="company-contact-form-label" for="contact-subject">Subject *</label>
+                    <input type="text" id="contact-subject" class="company-contact-form-control" required maxlength="80"
+                        placeholder="Brief subject of your message">
+                    <div class="input-error">Please enter a subject</div>
+                    <div class="character-count"><span id="subject-count">0</span>/80</div>
+                </div>
 
-  <!-- CTA Section -->
-  <section class="about-cta-section">
-    <div class="about-floating-element about-float-1"></div>
-    <div class="about-floating-element about-float-2"></div>
-    <div class="about-container">
-      <div class="about-cta-content">
-        <h2>Ready to Find Your Perfect Match?</h2>
-        <p>Join thousands of job seekers and employers who have already discovered the power of our intelligent matching
-          platform.</p>
-        <div class="about-cta-buttons">
-          <a href="#" class="about-btn about-btn-primary">Upload Your CV</a>
-          <a href="#" class="about-btn about-btn-success">Post a Job</a>
+                <div class="company-contact-form-group">
+                    <label class="company-contact-form-label" for="contact-message">Message *</label>
+                    <textarea id="contact-message" class="company-contact-form-control" required maxlength="800"
+                        placeholder="Please describe your inquiry in detail..."></textarea>
+                    <div class="input-error">Please enter your message</div>
+                    <div class="character-count"><span id="message-count">0</span>/800</div>
+                </div>
+
+                <div class="info-toggle" id="info-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                    <span>Additional Information (Optional)</span>
+                </div>
+
+                <div class="additional-info" id="additional-info">
+                    <div class="company-contact-form-group">
+                        <label class="company-contact-form-label" for="contact-phone">Phone Number</label>
+                        <input type="tel" id="contact-phone" class="company-contact-form-control" maxlength="20"
+                            placeholder="Your phone number">
+                    </div>
+
+                    <div class="company-contact-form-group">
+                        <label class="company-contact-form-label" for="contact-company">Company</label>
+                        <input type="text" id="contact-company" class="company-contact-form-control" maxlength="60"
+                            placeholder="Your company name">
+                    </div>
+                </div>
+
+                <button type="submit" class="company-contact-btn" id="submit-button">
+                    <span class="loading-spinner" id="loading-spinner"></span>
+                    <span id="button-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+                </button>
+            </form>
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
-    <section class="section newsletter" id="newsletter">
+     <section class="section newsletter" id="newsletter">
         <div class="container">
             <h2 class="animate slide-down">Get Career Tips & Job Alerts</h2>
             <p class="animate slide-down delay-1">Stay ahead of the competition with our weekly newsletter</p>
@@ -262,7 +188,6 @@
             </form>
         </div>
     </section>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -306,8 +231,8 @@
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                      </div>
-                      
+                    </div>
+
                 </div>
             </div>
             <div class="footer-bottom">
@@ -327,7 +252,7 @@
             </div>
         </div>
     </footer>
-     <div id="enrollModal" class="modal">
+    <div id="enrollModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Company Enrollment</h2>
@@ -355,11 +280,10 @@
     </div>
     <!-- Feedback Button -->
     <div class="feedback-button" id="feedbackButton">
-        <i class="fas fa-comment-alt"> 
+        <i class="fas fa-comment-alt">
         </i>
 
     </div>
-
     <!-- Feedback Modal -->
     <div class="feedback-modal" id="feedbackModal">
         <h3>Send us your feedback</h3>
@@ -395,8 +319,7 @@
     <div id="toastContainer"
         style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;">
     </div>
-    
 </body>
-<script src="/assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 
 </html>
